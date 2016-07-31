@@ -34,6 +34,6 @@ dimensions=$(xrandr | grep '*' | awk {'print $1'})
 screenheight=$(echo $dimensions | cut -d 'x' -f2)
 screenwidth=$(echo $dimensions | cut -d 'x' -f1)
 
-x=$(($screenwidth / 2 - 105))
+x=$(($screenwidth - 230))
 
 (echo "$volume" | gdbar -l "$label " -fg "$fg" -bg "$bg" -w "140"; sleep 2) | dzen2 -tw "210" -h "30" -x "$x" -y "53" -fn "Terminusmod" -fg "#fbfed3" -bg "#2d2123"
