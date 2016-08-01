@@ -27,7 +27,7 @@ URxvt.background:  rgba:2600/2000/1d00/f000
 URxvt.cursorcolor: #977d5e
 
 URxvt.color0:      #26201d
-URxvt.color1:      #9E4537
+URxvt.color1:      #9e4537
 URxvt.color2:      #788249
 URxvt.color3:      #aa843d
 URxvt.color4:      #3a4f54
@@ -35,11 +35,11 @@ URxvt.color5:      #724554
 URxvt.color6:      #5d796a
 URxvt.color7:      #977d5e
 
-URxvt.color8:      #3F3530
+URxvt.color8:      #3f3530
 URxvt.color9:      #ad7a5d
 URxvt.color10:     #889940
 URxvt.color11:     #b9924a
 URxvt.color12:     #4b666d
 URxvt.color13:     #845363
 URxvt.color14:     #749b86
-URxvt.color15:     #c9a77c
+URxvt.color15:     #dbb787
