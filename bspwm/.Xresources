@@ -11,7 +11,7 @@ rofi.separator-style: solid
 rofi.color-window: #26201d, argb:bbe25100, argb:cce25100
 rofi.color-normal: argb:0000000, #fa8600, argb:0000000, #fa8600, #26201d
 rofi.color-active: argb:0000000, #889940, argb:0000000, #889940, #26201d
-rofi.color-urgent: argb:0000000, #9b4e45, argb:0000000, #9b4e45, #26201d
+rofi.color-urgent: argb:0000000, #9e4537, argb:0000000, #9e4537, #26201d
 
 ! URxvt configuration
 ! -------------------
