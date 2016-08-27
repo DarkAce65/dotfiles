@@ -24,12 +24,12 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 # rules
 bspc rule -a URxvt:alsamixer state=floating
 bspc rule -a Gpick state=floating
-bspc rule -a google-chrome desktop='^3'
-bspc rule -a feh floating=on manage=off
+bspc rule -a feh state=floating manage=off
 
 # start background services
+xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 compton --config ~/.config/compton/compton.conf &
 yabar -c ~/.config/yabar/yabar.config &
 dunst -config ~/.config/dunst/dunstrc &
-feh --bg-fill /usr/share/backgrounds/record.jpg &
+feh --bg-fill /usr/share/backgrounds/record.png &

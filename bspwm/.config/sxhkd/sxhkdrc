@@ -16,7 +16,7 @@ super + a
 
 # google chrome
 super + g
-	bspc desktop -f '^3'; google-chrome-stable
+	google-chrome-stable
 
 # toggle compton
 super + BackSpace
@@ -29,6 +29,8 @@ super + shift + c
 # media keys
 {XF86AudioRaiseVolume,XF86AudioLowerVolume,XF86AudioMute}
 	~/.config/bspwm/scripts/volume.sh {up,down,mute}
+{XF86AudioPrev,XF86AudioPlay,XF86AudioNext}
+	playerctl {previous,play-pause,next}
 
 #
 # bspwm hotkeys
