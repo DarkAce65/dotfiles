@@ -26,6 +26,9 @@ bspc rule -a URxvt:alsamixer state=floating
 bspc rule -a Gpick state=floating
 bspc rule -a feh state=floating manage=off
 
+# on start scripts
+scripts/dimensions.sh
+
 # start background services
 xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
