@@ -1,8 +1,8 @@
 # bspwm dotfiles
 ---
 ##### Dependency list
+- [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) - Terminal
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) - Shell
-- vim with [pathogen](https://github.com/tpope/vim-pathogen) and  [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
     - [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon for bspwm
 - [yabar](https://github.com/geommer/yabar) - Status bar
@@ -11,7 +11,9 @@
 - [compton](https://github.com/chjj/compton) - For transparency, shadows, and animations
 
 ##### Extras
+- vim with [pathogen](https://github.com/tpope/vim-pathogen) and  [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
 - [neofetch](https://github.com/dylanaraps/neofetch) - Sysinfo script
+- [light](https://github.com/haikarainen/light) - Backlight control
 - [dunst](https://github.com/knopwob/dunst) - Notification daemon
 
 ### Installation
