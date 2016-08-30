@@ -1,9 +1,7 @@
 #!/bin/bash
 
 font='Terminusmod:size=10'
-dimensions=$(xrandr | grep '*' | awk {'print $1'})
-screenheight=$(echo $dimensions | cut -d 'x' -f2)
-screenwidth=$(echo $dimensions | cut -d 'x' -f1)
+source ~/.config/dimensions
 x=$(($screenwidth - 230))
 y=55
 
