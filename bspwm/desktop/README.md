@@ -6,6 +6,7 @@
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
     - [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon for bspwm
 - [yabar](https://github.com/geommer/yabar) - Status bar
+- [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [dzen2](https://github.com/robm/dzen) - Menuing program
 - [feh](https://github.com/derf/feh) - For desktop wallpaper
 - [compton](https://github.com/chjj/compton) - For transparency, shadows, and animations
