@@ -34,5 +34,4 @@ xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 compton --config ~/.config/compton/compton.conf &
 yabar -c ~/.config/yabar/yabar.config &
-dunst -config ~/.config/dunst/dunstrc &
 feh --bg-fill /usr/share/backgrounds/galaxy.png &

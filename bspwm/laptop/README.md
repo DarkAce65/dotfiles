@@ -15,7 +15,6 @@
 - vim with [pathogen](https://github.com/tpope/vim-pathogen) and  [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
 - [neofetch](https://github.com/dylanaraps/neofetch) - Sysinfo script
 - [light](https://github.com/haikarainen/light) - Backlight control
-- [dunst](https://github.com/knopwob/dunst) - Notification daemon
 
 ### Installation
 Copy the following files and folders to their respective destinations
