@@ -8,10 +8,10 @@ rofi.font: Sansation 16
 
 rofi.color-enabled: true
 rofi.separator-style: solid
-rofi.color-window: #26201d, argb:bbe25100, argb:cce25100
-rofi.color-normal: argb:0000000, #fa8600, argb:0000000, #fa8600, #26201d
-rofi.color-active: argb:0000000, #889940, argb:0000000, #889940, #26201d
-rofi.color-urgent: argb:0000000, #9e4537, argb:0000000, #9e4537, #26201d
+rofi.color-window: #111111, #55d0e0, #55d0e0
+rofi.color-normal: argb:0000000, #606060, argb:0000000, #111111, #55d0e0
+rofi.color-active: argb:0000000, #55d0e0, argb:0000000, #55d0e0, #111111
+rofi.color-urgent: argb:0000000, #a021ce, argb:0000000, #a021ce, #111111
 
 ! URxvt configuration
 ! -------------------
