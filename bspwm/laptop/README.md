@@ -21,6 +21,4 @@
 Copy the following files and folders to their respective destinations
 - **.config** folder, **.vimrc**, **.Xresources**, and **.zshrc** > ~/
 - **custom.zsh-theme** > /usr/share/oh-my-zsh/custom/
-- **record.png** and **record_blur.png** > /usr/share/backgrounds/
-
-record_blur.png can be used as a display manager background
+- **tiles.png** > /usr/share/backgrounds/
