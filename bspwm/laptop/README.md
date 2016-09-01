@@ -21,4 +21,4 @@
 Copy the following files and folders to their respective destinations
 - **.config** folder, **.vimrc**, **.Xresources**, and **.zshrc** > ~/
 - **custom.zsh-theme** > /usr/share/oh-my-zsh/custom/
-- **tiles.png** > /usr/share/backgrounds/
+- **galaxy.png** > /usr/share/backgrounds/ (Credit goes to [javierocasio](http://www.deviantart.com/art/Galaxy-NGC-3190-292243786))

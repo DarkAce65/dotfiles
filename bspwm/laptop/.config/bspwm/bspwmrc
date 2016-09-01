@@ -35,4 +35,4 @@ sxhkd -c ~/.config/sxhkd/sxhkdrc &
 compton --config ~/.config/compton/compton.conf &
 yabar -c ~/.config/yabar/yabar.config &
 dunst -config ~/.config/dunst/dunstrc &
-feh --bg-tile /usr/share/backgrounds/tiles.png &
+feh --bg-fill /usr/share/backgrounds/galaxy.png &
