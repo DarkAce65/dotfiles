@@ -14,7 +14,7 @@ if [[ "${track}" = "" ]] || [[ "${artist}" = "" ]]; then
 	(echo "";
 	echo "Media player not found.";
 	echo "";
-	sleep 2) | dzen2 -fg "#dbb787" -bg "#2d2123" -fn $font -x $x -y $y -w 300 -sa c -l 2 -e 'onstart=uncollapse;button3=exit' &
+	sleep 2) | dzen2 -fg "#dbb787" -bg "#111111" -fn $font -x $x -y $y -w 300 -sa c -l 2 -e 'onstart=uncollapse;button3=exit' &
 	exit
 fi
 
@@ -33,4 +33,4 @@ echo "  Artist:  ^fg(#977d5e)$artist^fg()";
 echo "  Album:   ^fg(#977d5e)$album^fg()";
 echo "";
 echo "                     "$prev"  "$playpause"  "$next;
-sleep 15) | dzen2 -fg "#dbb787" -bg "#2d2123" -fn $font -x $x -y $y -w 300 -l 6 -ta c -e 'onstart=uncollapse;button3=exit' &
+sleep 15) | dzen2 -fg "#dbb787" -bg "#111111" -fn $font -x $x -y $y -w 300 -l 6 -ta c -e 'onstart=uncollapse;button3=exit' &

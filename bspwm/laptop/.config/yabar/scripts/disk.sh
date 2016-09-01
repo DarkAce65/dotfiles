@@ -9,7 +9,7 @@ df -hPl $HOME | awk '
 		color="!Y bg0xffd33200 u0xffaa0000 Y!"
 	}
 	else {
-		color="!Y bg0xff2d2123 u0xff3a4f54 Y!"
+		color="!Y bg0xff111111 u0xff3a4f54 Y!"
 	}
 
 	exit 0
