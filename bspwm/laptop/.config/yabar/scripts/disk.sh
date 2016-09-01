@@ -6,10 +6,10 @@ df -hPl $HOME | awk '
 	space=$4
 
 	if($5 > 90) {
-		color="!Y bg0xffd33200 u0xffaa0000 Y!"
+		color="!Y u0xffa021ce Y!"
 	}
 	else {
-		color="!Y bg0xff111111 u0xff3a4f54 Y!"
+		color="!Y u0xff606060 Y!"
 	}
 
 	exit 0

@@ -2,6 +2,6 @@
 
 xtitle -s |
 while read -r title; do
-	[[ -z $title ]] && color="111111" || color="d33200"
-	echo "!Yu0xff${color}Y! "$title" "
+	[[ -z $title ]] && color="!Y u0xff111111 Y!" || color="!Y u0xff1b95ad Y!"
+	echo "$color $title "
 done

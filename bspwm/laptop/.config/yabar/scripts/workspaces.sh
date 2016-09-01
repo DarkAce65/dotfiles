@@ -8,17 +8,17 @@ while read -r line; do
 		desktopname="${desktops[index]#?}"
 		case ${desktops[index]} in
 			U*)
-				OUTPUT+="<span color='#55d0e0'>*</span> " ;;
+				OUTPUT+="<span color='#c423ff'>*</span> " ;;
 			u*)
-				OUTPUT+="<span color='#55d0e0'>!</span> " ;;
+				OUTPUT+="<span color='#c423ff'>!</span> " ;;
 			O*)
-				OUTPUT+="<span color='#bbbbbb'>*</span> " ;;
+				OUTPUT+="<span color='#55d0e0'>*</span> " ;;
 			o*)
-				OUTPUT+="<span color='#bbbbbb'>"$desktopname"</span> " ;;
+				OUTPUT+="<span color='#55d0e0'>"$desktopname"</span> " ;;
 			F*)
-				OUTPUT+="<span color='#444444'>*</span> " ;;
+				OUTPUT+="<span color='#505050'>*</span> " ;;
 			f*)
-				OUTPUT+="<span color='#444444'>"$desktopname"</span> " ;;
+				OUTPUT+="<span color='#505050'>"$desktopname"</span> " ;;
 		esac
 	done
 	echo $OUTPUT
