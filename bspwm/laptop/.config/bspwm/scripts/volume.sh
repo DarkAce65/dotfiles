@@ -21,12 +21,12 @@ muted=$(echo $mixerinfo | egrep -o "\[[a-z]+\]" | head -1 | egrep -o "[a-z]*")
 
 if [[ "$muted" == "off" ]]; then
 	label="Mute"
-	fg="#777777"
-	bg="#333333"
+	fg="#888888"
+	bg="#505050"
 else
 	label="$volume%"
-	fg="#fe8100"
-	bg="#6c3900"
+	fg="#c423ff"
+	bg="#505050"
 fi
 label=$(printf "%4s" $label)
 

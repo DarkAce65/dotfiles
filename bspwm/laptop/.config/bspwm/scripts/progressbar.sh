@@ -15,7 +15,7 @@ pipe="/tmp/dzen2-bar"
 
 if [ ! -e "$pipe" ]; then
 	mkfifo "$pipe"
-	(dzen2 -tw "200" -h "30" -x "$x" -y "$y" -fn "$font" -fg "#fbfed3" -bg "#2d2123" < "$pipe"
+	(dzen2 -tw "200" -h "30" -x "$x" -y "$y" -fn "$font" -fg "#e0e0e0" -bg "#111111" < "$pipe"
 		rm -f "$pipe") &
 fi
 
