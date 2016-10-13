@@ -183,7 +183,7 @@ birthday_format="+%a %d %b %Y %l:%M %p"
 # Color block range
 # --block_range start end
 start=0
-end=7
+end=15
 
 # Toggle color blocks
 # --color_blocks on/off

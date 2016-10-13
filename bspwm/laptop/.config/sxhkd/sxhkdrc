@@ -10,9 +10,11 @@ super + t
 super + d
 	rofi -show run
 
-# alsamixer
+# audio
 super + a
 	urxvt -name alsamixer -e alsamixer
+super + n
+	urxvt -name ncmpcpp -e ncmpcpp
 
 # google chrome
 super + g
@@ -27,6 +29,8 @@ super + shift + c
 	pkill -USR1 -x sxhkd
 
 # media keys
+{XF86MonBrightnessUp,XF86MonBrightnessDown}
+	~/.config/bspwm/scripts/brightness.sh {up,down}
 {XF86AudioRaiseVolume,XF86AudioLowerVolume,XF86AudioMute}
 	~/.config/bspwm/scripts/volume.sh {up,down,mute}
 {XF86AudioPrev,XF86AudioPlay,XF86AudioNext}

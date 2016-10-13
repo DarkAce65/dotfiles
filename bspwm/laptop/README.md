@@ -12,7 +12,7 @@
 - [compton](https://github.com/chjj/compton) - For transparency, shadows, and animations
 
 ##### Extras
-- vim with [pathogen](https://github.com/tpope/vim-pathogen) and  [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
+- vim with [pathogen](https://github.com/tpope/vim-pathogen) and [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
 - [neofetch](https://github.com/dylanaraps/neofetch) - Sysinfo script
 - [light](https://github.com/haikarainen/light) - Backlight control
 
@@ -20,4 +20,4 @@
 Copy the following files and folders to their respective destinations
 - **.config** folder, **.vimrc**, **.Xresources**, and **.zshrc** > ~/
 - **custom.zsh-theme** > /usr/share/oh-my-zsh/custom/
-- **galaxy.png** > /usr/share/backgrounds/ (Credit goes to [javierocasio](http://www.deviantart.com/art/Galaxy-NGC-3190-292243786))
+- **skyline.png** > /usr/share/backgrounds/
