@@ -28,7 +28,8 @@ bspc rule -a connman-gtk state=floating
 bspc rule -a feh state=floating manage=off
 
 # on start scripts
-./scripts/dimensions.sh
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+$DIR/scripts/dimensions.sh
 mpd ~/.config/mpd/mpd.conf
 
 # start background services

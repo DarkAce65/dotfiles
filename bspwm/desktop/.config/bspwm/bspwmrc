@@ -27,7 +27,8 @@ bspc rule -a Gpick state=floating
 bspc rule -a feh state=floating manage=off
 
 # on start scripts
-scripts/dimensions.sh
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+$DIR/scripts/dimensions.sh
 
 # start background services
 xsetroot -cursor_name left_ptr
