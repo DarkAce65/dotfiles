@@ -15,11 +15,10 @@ rofi.color-urgent: argb:0000000, #a021ce, argb:0000000, #a021ce, #111111
 
 ! URxvt configuration
 ! -------------------
-URxvt.font: xft:PragmataPro:style=bold:pixelsize=13
+URxvt.font: xft:Iosevka Term:size=9
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
-URxvt.lineSpace: 1
-URxvt.letterSpace: -1
+URxvt.lineSpace: 2
 URxvt.internalBorder: 15
 
 ! Transparency
