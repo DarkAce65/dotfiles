@@ -5,7 +5,7 @@
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) - Shell
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
     - [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon for bspwm
-- [yabar](https://github.com/geommer/yabar) - Status bar
+- [lemonbar](https://github.com/LemonBoy/bar) - Status bar
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [dzen2](https://github.com/robm/dzen) - Menuing program
 - [feh](https://github.com/derf/feh) - For desktop wallpaper

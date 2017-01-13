@@ -2,7 +2,6 @@
 
 step=${2-2}
 
-
 case $1 in
 	mute)
 		mixerinfo=$(amixer sset Master toggle) ;; # mute/unmute
@@ -19,16 +18,16 @@ fi
 volume=$(echo $mixerinfo | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*")
 muted=$(echo $mixerinfo | egrep -o "\[[a-z]+\]" | head -1 | egrep -o "[a-z]*")
 
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source $DIR/config.sh
+
 if [[ "$muted" == "off" ]]; then
 	label="Mute"
 	fg="#888888"
-	bg="#505050"
 else
 	label="$volume%"
-	fg="#c423ff"
-	bg="#505050"
+	fg=$VOL_FG
 fi
 label=$(printf "%4s" $label)
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-$DIR/progressbar.sh "$volume" "$label" "$fg" "$bg"
+$DIR/progressbar.sh $volume "$label" $fg

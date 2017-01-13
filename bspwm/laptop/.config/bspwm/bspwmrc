@@ -1,9 +1,13 @@
 #! /bin/sh
 
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source $DIR/scripts/config.sh
+
 # bspc config
 bspc config border_width         2
-bspc config window_gap          20
-bspc config top_padding         40
+bspc config window_gap $WINDOW_GAP
+
+bspc config top_padding          0
 bspc config left_padding         0
 bspc config right_padding        0
 bspc config bottom_padding       0
@@ -24,15 +28,15 @@ bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 bspc rule -a URxvt:alsamixer state=floating
 bspc rule -a Gpick state=floating
 bspc rule -a feh state=floating manage=off
+bspc rule -a lemonbar state=floating manage=off
 
 # on start scripts
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-$DIR/scripts/dimensions.sh
 mpd ~/.config/mpd/mpd.conf
 
 # start background services
+$DIR/scripts/clock.sh &
+$DIR/scripts/workspaces.sh &
 xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 compton --config ~/.config/compton/compton.conf &
-yabar -c ~/.config/yabar/yabar.config &
 feh --bg-fill /usr/share/backgrounds/skyline.png
