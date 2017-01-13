@@ -1,10 +1,10 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/config.sh
+source config.sh
+
 height="35"
 width="200"
-x=$WINDOW_GAP
+x=$((SCREENWIDTH / 2 - width / 2))
 y=$((10 + height))
 
 geometry="${width}x${height}+${x}-${y}"

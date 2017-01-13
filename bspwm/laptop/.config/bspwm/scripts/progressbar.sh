@@ -1,7 +1,6 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/config.sh
+source config.sh
 
 value=${1-50}
 label=${2-"label"}
@@ -14,7 +13,6 @@ x=$((SCREENWIDTH / 2 - width / 2))
 y=$((10 + height))
 
 geometry="${width}x${height}+${x}-${y}"
-echo $geometry
 
 pipe="/tmp/dzen2-bar"
 

@@ -31,6 +31,7 @@ bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
 
 # on start scripts
+$DIR/scripts/theme.sh
 mpd ~/.config/mpd/mpd.conf
 
 # start background services
@@ -39,4 +40,3 @@ $DIR/scripts/workspaces.sh &
 xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 compton --config ~/.config/compton/compton.conf &
-feh --bg-fill /usr/share/backgrounds/skyline.png

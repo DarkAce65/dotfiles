@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source config.sh
+
 step=${2-2}
 
 case $1 in
@@ -18,9 +20,6 @@ fi
 volume=$(echo $mixerinfo | egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*")
 muted=$(echo $mixerinfo | egrep -o "\[[a-z]+\]" | head -1 | egrep -o "[a-z]*")
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/config.sh
-
 if [[ "$muted" == "off" ]]; then
 	label="Mute"
 	fg="#888888"
@@ -30,4 +29,4 @@ else
 fi
 label=$(printf "%4s" $label)
 
-$DIR/progressbar.sh $volume "$label" $fg
+progressbar.sh $volume "$label" $fg

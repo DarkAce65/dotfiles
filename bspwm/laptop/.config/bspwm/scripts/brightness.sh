@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source config.sh
+
 light -Sc 5
 percentage=$(printf "%.0f" $(light -G))
 case $1 in
@@ -14,6 +16,4 @@ percentage=$(printf "%.0f" $(light -G))
 label="$percentage%"
 label=$(printf "%4s" $label)
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/config.sh
-$DIR/progressbar.sh $percentage "$label" $BRT_FG
+progressbar.sh $percentage "$label" $BRT_FG
