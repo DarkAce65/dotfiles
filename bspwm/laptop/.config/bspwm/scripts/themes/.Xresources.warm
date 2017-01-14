@@ -24,24 +24,24 @@ URxvt.internalBorder: 15
 ! Transparency
 URxvt.depth: 32
 
-*foreground:    #ffffff
-*background:    #36092e
-*cursorColor:   #ffffff
+*foreground:    #fedac4
+*background:    #2e102c
+*cursorColor:   #fedac4
 
-URxvt*color0:   #1d0c2b
-URxvt*color1:   #f3a03f
-URxvt*color2:   #36092e
-URxvt*color3:   #760234
-URxvt*color4:   #f3463f
-URxvt*color5:   #ba1e4b
-URxvt*color6:   #f7775c
-URxvt*color7:   #fdded3
+URxvt*color0:   #3f134d
+URxvt*color1:   #fd7e49
+URxvt*color2:   #9aa274
+URxvt*color3:   #cc8f52
+URxvt*color4:   #724b74
+URxvt*color5:   #6b154a
+URxvt*color6:   #5e716a
+URxvt*color7:   #fedac4
 
-URxvt*color8:   #14081e
-URxvt*color9:   #2ca6ab
-URxvt*color10:  #391733
-URxvt*color11:  #6A1238
-URxvt*color12:  #ab312c
-URxvt*color13:  #831535
-URxvt*color14:  #ae5441
-URxvt*color15:  #b29c94
+URxvt*color8:   #562566
+URxvt*color9:   #d15e34
+URxvt*color10:  #818a55
+URxvt*color11:  #a87038
+URxvt*color12:  #563159
+URxvt*color13:  #520030
+URxvt*color14:  #40574e
+URxvt*color15:  #b38a7d
