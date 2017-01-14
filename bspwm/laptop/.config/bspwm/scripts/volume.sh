@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source config.sh
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source $DIR/config.sh
 
 step=${2-2}
 
@@ -25,8 +26,8 @@ if [[ "$muted" == "off" ]]; then
 	fg="#888888"
 else
 	label="$volume%"
-	fg=$VOL_FG
+	fg=$BAR_FG
 fi
 label=$(printf "%4s" $label)
 
-progressbar.sh $volume "$label" $fg
+$DIR/progressbar.sh $volume "$label" $fg

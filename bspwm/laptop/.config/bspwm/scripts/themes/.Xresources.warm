@@ -29,7 +29,7 @@ URxvt.depth: 32
 *cursorColor:   #ffffff
 
 URxvt*color0:   #1d0c2b
-URxvt*color1:   #3fecf3
+URxvt*color1:   #f3a03f
 URxvt*color2:   #36092e
 URxvt*color3:   #760234
 URxvt*color4:   #f3463f

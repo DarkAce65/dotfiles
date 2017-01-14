@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source config.sh
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source $DIR/config.sh
 
 value=${1-50}
 label=${2-"label"}
@@ -9,12 +10,12 @@ barbg=${4-$BAR_BG}
 
 height="35"
 width="200"
-x=$((SCREENWIDTH / 2 - width / 2))
+x=$WINDOW_GAP
 y=$((10 + height))
 
 geometry="${width}x${height}+${x}-${y}"
 
-pipe="/tmp/dzen2-bar"
+pipe="/tmp/progressbar"
 
 if [ ! -e "$pipe" ]; then
 	mkfifo "$pipe"

@@ -1,6 +1,7 @@
 #!/bin/bash
 
-source config.sh
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source $DIR/config.sh
 
 height="35"
 width="200"

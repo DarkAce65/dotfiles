@@ -10,24 +10,20 @@ FONT_ICON='WunconSiji:size=8'
 
 if [[ ! -e /tmp/theme ]]; then
 	DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-	cp $DIR/themes/.Xresources.cool ~/.Xresources
-	xrdb ~/.Xresources
-	echo 0 > /tmp/theme
+	$DIR/theme.sh
 fi
 theme=$(cat /tmp/theme)
 
 if [[ $theme -eq 0 ]]; then
 	FG="#090d18"
-	FG_ACCENT="#3B5BB2"
+	FG_ACCENT="#3b5bb2"
 	BG="#a3cadc"
-	VOL_FG="#c423ff"
-	BRT_FG="#1b95ad"
+	BAR_FG="#1b95ad"
 	BAR_BG="#000918"
 elif [[ $theme -eq 1 ]]; then
-	FG="#090d18"
-	FG_ACCENT="#3B5BB2"
-	BG="#a3cadc"
-	VOL_FG="#c423ff"
-	BRT_FG="#1b95ad"
-	BAR_BG="#000918"
+	FG="#2e102c"
+	FG_ACCENT="#ac1891"
+	BG="#fedac4"
+	BAR_FG="#c423ff"
+	BAR_BG="#36092e"
 fi
