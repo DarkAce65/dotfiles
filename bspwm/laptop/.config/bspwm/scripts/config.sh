@@ -22,8 +22,8 @@ if [[ $theme -eq 0 ]]; then
 	BAR_BG="#000918"
 elif [[ $theme -eq 1 ]]; then
 	FG="#2e102c"
-	FG_ACCENT="#f7775c"
+	FG_ACCENT="#fd7e49"
 	BG="#fedac4"
-	BAR_FG="#c423ff"
-	BAR_BG="#36092e"
+	BAR_FG="#d15e34"
+	BAR_BG="#2e102c"
 fi

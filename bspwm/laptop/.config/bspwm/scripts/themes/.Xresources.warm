@@ -16,6 +16,7 @@ rofi.color-urgent: argb:0000000, #a021ce, argb:0000000, #a021ce, #111111
 ! URxvt configuration
 ! -------------------
 URxvt.font: xft:Iosevka Term:size=9
+URxvt.geometry: 80x20
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
 URxvt.lineSpace: 2

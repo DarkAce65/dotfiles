@@ -45,7 +45,7 @@ case $theme in
 	1)
 		cp $DIR/themes/.Xresources.warm ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/landscape.jpg
-		border="#f3463f"
+		border="#fd7e49"
 		;;
 esac
 
