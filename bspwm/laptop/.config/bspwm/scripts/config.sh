@@ -15,11 +15,11 @@ fi
 theme=$(cat /tmp/theme)
 
 if [[ $theme -eq 0 ]]; then
-	FG="#090d18"
-	FG_ACCENT="#3b5bb2"
-	BG="#a3cadc"
+	FG="#0e0e31"
+	FG_ACCENT="#4d4dc4"
+	BG="#b0b0eb"
 	BAR_FG="#1b95ad"
-	BAR_BG="#000918"
+	BAR_BG="#0e0e31"
 elif [[ $theme -eq 1 ]]; then
 	FG="#2e102c"
 	FG_ACCENT="#fd7e49"

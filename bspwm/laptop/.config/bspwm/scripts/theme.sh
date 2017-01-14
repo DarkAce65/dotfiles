@@ -40,7 +40,7 @@ case $theme in
 	0)
 		cp $DIR/themes/.Xresources.cool ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/skyline.png
-		border="#27aac4"
+		border="#7882bf"
 		;;
 	1)
 		cp $DIR/themes/.Xresources.warm ~/.Xresources
