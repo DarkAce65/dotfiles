@@ -23,17 +23,12 @@ printinfo () {
     info "Shell" shell
     info "CPU" cpu
     info "GPU" gpu
-    info "Resolution" resolution
     info "Storage" disk
     info "Memory" memory
     info "Uptime" uptime
     info "Packages" packages
-    info "DE" de
-    info "WM" wm
-    info "WM Theme" wmtheme
     info "Theme" theme
     info "Icons" icons
-    info "Font" font
 
     info linebreak
     info cols
