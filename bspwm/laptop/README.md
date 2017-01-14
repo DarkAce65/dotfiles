@@ -1,6 +1,6 @@
 # bspwm dotfiles
 ---
-##### Dependency list
+### Dependency list
 - [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) - Terminal
 - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh) - Shell
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
@@ -20,4 +20,8 @@
 Copy the following files and folders to their respective destinations
 - **.config** folder, **.vimrc**, **.Xresources**, and **.zshrc** > ~/
 - **custom.zsh-theme** > /usr/share/oh-my-zsh/custom/
-- **skyline.png** > /usr/share/backgrounds/
+- images > /usr/share/backgrounds/
+
+### Credits
+- skyline.png - [The Hamster Alliance](http://www.hamsteralliance.com/)
+- landscape.jpg - [EocDesigns](http://eocdesigns.deviantart.com/art/Flat-Landscape-554894483)
