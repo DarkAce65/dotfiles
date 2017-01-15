@@ -1,24 +1,23 @@
 #!/bin/bash
 
-if [[ ! -e /tmp/theme ]]; then
-	echo "0" > /tmp/theme
+tfile="/tmp/theme"
+if [[ ! -e $tfile ]]; then
+	echo "0" > $tfile
 fi
 
 if [[ $# -eq 0 ]]; then
-	theme=$(cat /tmp/theme)
+	theme=$(cat $tfile)
 else
 	while [[ $# -gt 0 ]]; do
 		case "$1" in
 			-i|--inc)
 				shift
-				theme=$(($(cat /tmp/theme) + 1))
-				$DIR/compton.sh -k
+				theme=$(($(cat $tfile) + 1))
 				;;
 			-s|--set)
 				shift
 				if [[ $# -gt 0 ]]; then
 					theme=$1
-					$DIR/compton.sh -k
 				else
 					echo "No theme specified."
 					exit 1
@@ -33,21 +32,26 @@ else
 fi
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-if [[ $theme -gt 1 ]]; then
+if [[ $theme -gt 2 ]]; then
 	theme=0
 fi
 
-echo $theme > /tmp/theme
+echo $theme > $tfile
 case $theme in
 	0)
 		cp $DIR/themes/.Xresources.cool ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/skyline.png
-		border="#7882bf"
+		border="#3ea290"
 		;;
 	1)
 		cp $DIR/themes/.Xresources.warm ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/landscape.jpg
 		border="#fd7e49"
+		;;
+	2)
+		cp $DIR/themes/.Xresources.forest ~/.Xresources
+		feh --bg-fill /usr/share/backgrounds/forest.png
+		border="#00b64d"
 		;;
 esac
 
@@ -58,7 +62,6 @@ bspc config presel_feedback_color $border
 pkill dzen2
 pkill clock.sh
 pkill workspaces.sh
-$DIR/compton.sh -s
 $DIR/clock.sh
 $DIR/workspaces.sh
 xrdb ~/.Xresources

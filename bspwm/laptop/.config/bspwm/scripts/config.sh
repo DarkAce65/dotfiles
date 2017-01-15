@@ -26,4 +26,10 @@ elif [[ $theme -eq 1 ]]; then
 	BG="#fedac4"
 	BAR_FG="#d15e34"
 	BAR_BG="#2e102c"
+elif [[ $theme -eq 2 ]]; then
+	FG="#003d19"
+	FG_ACCENT="#00b64d"
+	BG="#8afcbb"
+	BAR_FG="#00b64d"
+	BAR_BG="#003d19"
 fi

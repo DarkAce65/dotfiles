@@ -2,14 +2,14 @@
 ! ------------------
 rofi.fullscreen: true
 rofi.padding: 250
-rofi.bw: 5
+rofi.bw: 0
 rofi.font: Sansation 18
 rofi.color-enabled: true
 rofi.separator-style: solid
 
-rofi.color-window: argb:bb000000, #7882bf, #7882bf
-rofi.color-normal: argb:0000000, #4d4d4d, argb:0000000, argb:0000000, #7882bf
-rofi.color-active: argb:0000000, #7882bf, argb:0000000, #7882bf, #000000
+rofi.color-window: argb:cc000000, #3ea290, #3ea290
+rofi.color-normal: argb:0000000, #888888, argb:0000000, argb:0000000, #3ea290
+rofi.color-active: argb:0000000, #3ea290, argb:0000000, #3ea290, #000000
 rofi.color-urgent: argb:0000000, #52ad91, argb:0000000, #52ad91, #000000
 
 ! URxvt configuration
