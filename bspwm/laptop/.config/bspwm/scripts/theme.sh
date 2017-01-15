@@ -62,6 +62,6 @@ bspc config presel_feedback_color $border
 pkill dzen2
 pkill clock.sh
 pkill workspaces.sh
-$DIR/clock.sh
-$DIR/workspaces.sh
+$DIR/clock.sh &
+$DIR/workspaces.sh &
 xrdb ~/.Xresources
