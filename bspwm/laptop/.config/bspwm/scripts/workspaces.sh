@@ -12,7 +12,7 @@ geometry="${width}x${height}+${x}+${y}"
 
 function workspaces {
 	bspc subscribe report | while read -r line; do
-		OUTPUT="%{c}"
+		OUTPUT="%{c} "
 		IFS=':' read -r -a desktops <<< "$line"
 		for index in "${!desktops[@]}"; do
 			desktopname="${desktops[index]#?}"
