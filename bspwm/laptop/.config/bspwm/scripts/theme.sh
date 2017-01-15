@@ -12,11 +12,13 @@ else
 			-i|--inc)
 				shift
 				theme=$(($(cat /tmp/theme) + 1))
+				$DIR/compton.sh -k
 				;;
 			-s|--set)
 				shift
 				if [[ $# -gt 0 ]]; then
 					theme=$1
+					$DIR/compton.sh -k
 				else
 					echo "No theme specified."
 					exit 1
@@ -56,6 +58,7 @@ bspc config presel_feedback_color $border
 pkill dzen2
 pkill clock.sh
 pkill workspaces.sh
+$DIR/compton.sh -s
 $DIR/clock.sh
 $DIR/workspaces.sh
 xrdb ~/.Xresources
