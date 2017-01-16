@@ -51,7 +51,7 @@ case $theme in
 	2)
 		cp $DIR/themes/.Xresources.forest ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/forest.png
-		border="#00b64d"
+		border="#71e98b"
 		;;
 esac
 
