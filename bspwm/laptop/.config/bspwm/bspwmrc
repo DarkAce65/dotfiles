@@ -1,7 +1,6 @@
 #! /bin/sh
 
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-$DIR/scripts/theme.sh
 source $DIR/scripts/config.sh
 
 # bspc config
@@ -32,6 +31,7 @@ bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
 
 # on start scripts
+$DIR/scripts/theme.sh
 mpd ~/.config/mpd/mpd.conf
 
 # start background services
