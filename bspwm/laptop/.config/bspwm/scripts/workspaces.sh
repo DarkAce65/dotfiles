@@ -36,12 +36,3 @@ function workspaces {
 }
 
 workspaces | lemonbar -d -n "workspaces" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG &
-
-l=20
-wid=$(xdo id -a "workspaces")
-while [ -z "$wid" -a $l -gt 0 ] ; do
-	sleep 0.05
-	wid=$(xdo id -a "workspaces")
-	l=$((l - 1))
-done
-[ -n "$wid" ] && xdo above -t "$(xdo id -n root)" "$wid"

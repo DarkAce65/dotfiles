@@ -15,12 +15,3 @@ while :; do
 	echo "%{c}$(date "+%a %d %b %l:%M %p")"
 	sleep 2
 done | lemonbar -d -n "clock" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG &
-
-l=20
-wid=$(xdo id -a "clock")
-while [ -z "$wid" -a $l -gt 0 ] ; do
-	sleep 0.05
-	wid=$(xdo id -a "clock")
-	l=$((l - 1))
-done
-[ -n "$wid" ] && xdo above -t "$(xdo id -n root)" "$wid"

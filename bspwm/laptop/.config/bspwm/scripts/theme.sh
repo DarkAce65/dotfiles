@@ -59,9 +59,13 @@ bspc config normal_border_color   "#444444"
 bspc config focused_border_color  $border
 bspc config presel_feedback_color $border
 
-pkill dzen2
 pkill clock.sh
 pkill workspaces.sh
+pkill lemonbar
+pkill dzen2
 $DIR/clock.sh &
 $DIR/workspaces.sh &
 xrdb ~/.Xresources
+sleep 0.5
+xdo below -t $(xdo id -n root) $(xdo id -a clock)
+xdo below -t $(xdo id -n root) $(xdo id -a workspaces)
