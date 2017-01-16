@@ -27,9 +27,9 @@ elif [[ $theme -eq 1 ]]; then
 	BAR_FG="#d15e34"
 	BAR_BG="#2e102c"
 elif [[ $theme -eq 2 ]]; then
-	FG="#003d19"
+	FG="#0a150f"
 	FG_ACCENT="#00b64d"
-	BG="#8afcbb"
+	BG="#9ef7b2"
 	BAR_FG="#00b64d"
-	BAR_BG="#003d19"
+	BAR_BG="#0a150f"
 fi
