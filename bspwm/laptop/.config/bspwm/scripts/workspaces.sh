@@ -12,26 +12,26 @@ geometry="${width}x${height}+${x}+${y}"
 
 function workspaces {
 	bspc subscribe report | while read -r line; do
-		OUTPUT="%{c} "
+		output="%{c} "
 		IFS=':' read -r -a desktops <<< "$line"
 		for index in "${!desktops[@]}"; do
 			desktopname="${desktops[index]#?}"
 			case ${desktops[index]} in
 				U*)
-					OUTPUT+="%{F${FG_ACCENT}}$(printf "%b" "\ue0b3")%{F-} " ;;
+					output+="%{F${FG_ACCENT}}$(printf "%b" "\ue0b3")%{F-} " ;;
 				u*)
-					OUTPUT+="$(printf "%b" "\ue0b3") " ;;
+					output+="$(printf "%b" "\ue0b3") " ;;
 				O*)
-					OUTPUT+="%{F${FG_ACCENT}}$(printf "%b" "\ue000")%{F-} " ;;
+					output+="%{F${FG_ACCENT}}$(printf "%b" "\ue000")%{F-} " ;;
 				o*)
-					OUTPUT+="$(printf "%b" "\ue000") " ;;
+					output+="$(printf "%b" "\ue000") " ;;
 				F*)
-					OUTPUT+="%{F${FG_ACCENT}}$(printf "%b" "\ue001")%{F-} " ;;
+					output+="%{F${FG_ACCENT}}$(printf "%b" "\ue001")%{F-} " ;;
 				f*)
-					OUTPUT+="$(printf "%b" "\ue001") " ;;
+					output+="$(printf "%b" "\ue001") " ;;
 			esac
 		done
-		printf "%s\n" "$OUTPUT"
+		printf "%s\n" "$output"
 	done
 }
 
