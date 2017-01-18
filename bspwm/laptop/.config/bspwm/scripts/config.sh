@@ -9,10 +9,10 @@ FONT='IosevkaTerm:size=9:style=Bold'
 FONT_ICON='WunconSiji:size=8'
 
 if [[ ! -e /tmp/theme ]]; then
-	DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-	$DIR/theme.sh
+	theme=0
+else
+	theme=$(cat /tmp/theme)
 fi
-theme=$(cat /tmp/theme)
 
 if [[ $theme -eq 0 ]]; then
 	FG="#0e0e31"
