@@ -64,8 +64,10 @@ pkill workspaces.sh
 pkill lemonbar
 pkill dzen2
 $DIR/clock.sh &
+$DIR/battery.sh &
 $DIR/workspaces.sh &
 xrdb ~/.Xresources
 sleep 0.5
 xdo below -t $(xdo id -n root) $(xdo id -a clock)
+xdo below -t $(xdo id -n root) $(xdo id -a battery)
 xdo below -t $(xdo id -n root) $(xdo id -a workspaces)
