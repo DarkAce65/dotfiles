@@ -12,12 +12,15 @@ geometry="${width}x${height}+${x}+${y}"
 
 while :; do
 	charge=$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')
-	icon="\ue238"
+	icon="\ue1ff"
 	if [[ $charge -lt 15 ]]; then
-		icon="\ue236"
+		icon="\ue1fd"
 	elif [[ $charge -lt 40 ]]; then
-		icon="\ue237"
+		icon="\ue1fe"
+	fi
+	if [[ $(cat /sys/class/power_supply/ADP1/online) -eq 1 ]]; then
+		icon="\ue201"
 	fi
 	echo "%{c}$(printf '%b' $icon) ${charge}%"
-	sleep 10
+	sleep 2
 done | lemonbar -d -n "battery" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG &
