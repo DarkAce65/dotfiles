@@ -31,7 +31,7 @@ bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
 
 # on start scripts
-$DIR/scripts/theme.sh
+$DIR/scripts/theme.sh &
 mpd ~/.config/mpd/mpd.conf
 
 # start background services
