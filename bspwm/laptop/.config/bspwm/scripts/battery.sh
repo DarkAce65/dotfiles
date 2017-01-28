@@ -13,9 +13,9 @@ geometry="${width}x${height}+${x}+${y}"
 while :; do
 	charge=$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')
 	icon="\ue1ff"
-	if [[ $charge -lt 15 ]]; then
+	if [[ $charge -lt 20 ]]; then
 		icon="\ue1fd"
-	elif [[ $charge -lt 40 ]]; then
+	elif [[ $charge -lt 50 ]]; then
 		icon="\ue1fe"
 	fi
 	if [[ $(cat /sys/class/power_supply/ADP1/online) -eq 1 ]]; then
