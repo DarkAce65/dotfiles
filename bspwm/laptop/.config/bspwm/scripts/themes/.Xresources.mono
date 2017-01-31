@@ -7,8 +7,8 @@ rofi.font: Sansation 18
 rofi.color-enabled: true
 rofi.separator-style: solid
 
-rofi.color-window: argb:cc000000, #cccccc, #cccccc
-rofi.color-normal: argb:0000000, #666666, argb:0000000, argb:0000000, #cccccc
+rofi.color-window: argb:77dddddd, #333333, #333333
+rofi.color-normal: argb:0000000, #111111, argb:0000000, argb:0000000, #cccccc
 rofi.color-active: argb:0000000, #cccccc, argb:0000000, #cccccc, #000000
 rofi.color-urgent: argb:0000000, #99a2a7, argb:0000000, #99a2a7, #000000
 
