@@ -49,9 +49,9 @@ case $theme in
 		border="#fd7e49"
 		;;
 	2)
-		cp $DIR/themes/.Xresources.forest ~/.Xresources
-		feh --bg-fill /usr/share/backgrounds/forest.png
-		border="#71e98b"
+		cp $DIR/themes/.Xresources.mono ~/.Xresources
+		feh --bg-fill /usr/share/backgrounds/mono.png
+		border="#aaaaaa"
 		;;
 esac
 

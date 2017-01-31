@@ -1,0 +1,47 @@
+! Rofi configuration
+! ------------------
+rofi.fullscreen: true
+rofi.padding: 250
+rofi.bw: 0
+rofi.font: Sansation 18
+rofi.color-enabled: true
+rofi.separator-style: solid
+
+rofi.color-window: argb:cc000000, #cccccc, #cccccc
+rofi.color-normal: argb:0000000, #666666, argb:0000000, argb:0000000, #cccccc
+rofi.color-active: argb:0000000, #cccccc, argb:0000000, #cccccc, #000000
+rofi.color-urgent: argb:0000000, #99a2a7, argb:0000000, #99a2a7, #000000
+
+! URxvt configuration
+! -------------------
+URxvt.font: xft:Iosevka Term:size=9
+URxvt.geometry: 80x20
+URxvt.scrollBar: false
+URxvt.urgentOnBell: true
+URxvt.lineSpace: 2
+URxvt.internalBorder: 15
+
+! Transparency
+URxvt.depth: 32
+
+*foreground:    #999999
+*background:    #141414
+*cursorColor:   #999999
+
+URxvt*color0:   #000000
+URxvt*color1:   #545f65
+URxvt*color2:   #6d787c
+URxvt*color3:   #dee2e3
+URxvt*color4:   #9ea8aa
+URxvt*color5:   #97a1a3
+URxvt*color6:   #97a1a3
+URxvt*color7:   #dee2e3
+
+URxvt*color8:   #666666
+URxvt*color9:   #dae3e8
+URxvt*color10:  #99a2a7
+URxvt*color11:  #efef60
+URxvt*color12:  #dee2e3
+URxvt*color13:  #c2c7ca
+URxvt*color14:  #c2c7ca
+URxvt*color15:  #efefef
