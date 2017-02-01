@@ -1,6 +1,7 @@
 #!/bin/bash
 
-tfile="/tmp/theme"
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+tfile=$DIR"/themes/theme"
 if [[ ! -e $tfile ]]; then
 	echo "0" > $tfile
 fi
@@ -31,7 +32,6 @@ else
 	done
 fi
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 if [[ $theme -gt 2 ]]; then
 	theme=0
 fi

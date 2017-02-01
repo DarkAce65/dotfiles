@@ -8,10 +8,12 @@ WINDOW_GAP="20"
 FONT='IosevkaTerm:size=9:style=Bold'
 FONT_ICON='WunconSiji:size=8'
 
-if [[ ! -e /tmp/theme ]]; then
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+tfile=$DIR"/themes/theme"
+if [[ ! -e $tfile ]]; then
 	theme=0
 else
-	theme=$(cat /tmp/theme)
+	theme=$(cat $tfile)
 fi
 
 if [[ $theme -eq 0 ]]; then
