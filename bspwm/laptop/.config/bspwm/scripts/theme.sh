@@ -1,7 +1,6 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-tfile=$DIR"/themes/theme"
+tfile="/tmp/theme"
 if [[ ! -e $tfile ]]; then
 	echo "0" > $tfile
 fi
@@ -37,6 +36,7 @@ if [[ $theme -gt 2 ]]; then
 fi
 
 echo $theme > $tfile
+DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 case $theme in
 	0)
 		cp $DIR/themes/.Xresources.cool ~/.Xresources
