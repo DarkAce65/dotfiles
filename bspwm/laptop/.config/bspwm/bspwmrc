@@ -30,10 +30,10 @@ bspc rule -a Gpick state=floating
 bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
 
-# on start scripts
-mpd ~/.config/mpd/mpd.conf
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # start background services
+mpd ~/.config/mpd/mpd.conf
 xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
 $DIR/scripts/theme.sh &
