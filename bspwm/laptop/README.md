@@ -25,3 +25,4 @@ Copy the following files and folders to their respective destinations
 ### Credits
 - skyline.png - [The Hamster Alliance](http://www.hamsteralliance.com/)
 - landscape.jpg - [EocDesigns](http://eocdesigns.deviantart.com/art/Flat-Landscape-554894483)
+- mono.png - [unscenemedia](http://unscenemedia.deviantart.com/art/Low-Poly-Dual-Screen-Wallpaper-580474565)
