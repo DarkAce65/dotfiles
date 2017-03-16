@@ -23,7 +23,7 @@ elif [[ $percentage -gt 100 ]]; then
 fi
 
 echo $percentage > $temp
-xbacklight -set $percentage -fps 30
+xbacklight -set $percentage -fps 30 &
 label="$percentage%"
 label=$(printf "%4s" $label)
 
