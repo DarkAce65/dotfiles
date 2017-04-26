@@ -59,10 +59,10 @@ bspc config normal_border_color   "#444444"
 bspc config focused_border_color  $border
 bspc config presel_feedback_color $border
 
-pkill clock.sh
-pkill workspaces.sh
-pkill lemonbar
-pkill dzen2
+pkill -x clock.sh
+pkill -x workspaces.sh
+pkill -x lemonbar
+pkill -x dzen2
 $DIR/clock.sh &
 $DIR/battery.sh &
 $DIR/workspaces.sh &
