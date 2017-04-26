@@ -26,7 +26,7 @@ URxvt.internalBorder: 15
 URxvt.depth: 32
 
 *foreground:    #999999
-*background:    #141414
+*background:    rgba:1400/1400/1400/bb00
 *cursorColor:   #999999
 
 URxvt*color0:   #000000
