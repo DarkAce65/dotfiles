@@ -31,7 +31,6 @@ bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-xinput set-prop 'ETPS/2 Elantech Touchpad' 282 1 &
 
 # start background services
 mpd ~/.config/mpd/mpd.conf
