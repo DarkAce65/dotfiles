@@ -3,10 +3,10 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $DIR/config.sh
 
-height="35"
-width="65"
+height=35
+width=65
 x=$((SCREENWIDTH / 2 + 110))
-y="10"
+y=10
 
 geometry="${width}x${height}+${x}+${y}"
 
@@ -23,4 +23,4 @@ while :; do
 	fi
 	echo "%{c}$(printf '%b' $icon) ${charge}%"
 	sleep 2
-done | lemonbar -d -n "battery" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG
+done | lemonbar -d -n 'battery' -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG

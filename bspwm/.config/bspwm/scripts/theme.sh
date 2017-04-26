@@ -1,15 +1,15 @@
 #!/bin/bash
 
-tfile="/tmp/theme"
+tfile='/tmp/theme'
 if [[ ! -e $tfile ]]; then
-	echo "0" > $tfile
+	echo '0' > $tfile
 fi
 
 if [[ $# -eq 0 ]]; then
 	theme=$(cat $tfile)
 else
 	while [[ $# -gt 0 ]]; do
-		case "$1" in
+		case $1 in
 			-i|--inc)
 				shift
 				theme=$(($(cat $tfile) + 1))
@@ -19,7 +19,7 @@ else
 				if [[ $# -gt 0 ]]; then
 					theme=$1
 				else
-					echo "No theme specified."
+					echo 'No theme specified.'
 					exit 1
 				fi
 				shift
@@ -41,23 +41,23 @@ case $theme in
 	0)
 		cp $DIR/themes/.Xresources.cool ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/skyline.png
-		border="#3ea290"
+		border_color='#3ea290'
 		;;
 	1)
 		cp $DIR/themes/.Xresources.warm ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/landscape.jpg
-		border="#fd7e49"
+		border_color='#fd7e49'
 		;;
 	2)
 		cp $DIR/themes/.Xresources.mono ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/mono.png
-		border="#aaaaaa"
+		border_color='#aaaaaa'
 		;;
 esac
 
-bspc config normal_border_color   "#444444"
-bspc config focused_border_color  $border
-bspc config presel_feedback_color $border
+bspc config normal_border_color    '#444444'
+bspc config focused_border_color   $border_color
+bspc config presel_feedback_color  $border_color
 
 pkill -x clock.sh
 pkill -x battery.sh

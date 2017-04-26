@@ -3,7 +3,7 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $DIR/config.sh
 
-temp="/tmp/brightness"
+temp='/tmp/brightness'
 if [[ -e $temp ]]; then
 	percentage=$(cat $temp)
 else
@@ -24,7 +24,7 @@ fi
 
 echo $percentage > $temp
 xbacklight -set $percentage -fps 30 &
-label="$percentage%"
-label=$(printf "%4s" $label)
+label="${percentage}%"
+label=$(printf '%4s' $label)
 
-$DIR/progressbar.sh $percentage "$label" $BAR_FG
+$DIR/progressbar.sh $percentage $label $BAR_FG
