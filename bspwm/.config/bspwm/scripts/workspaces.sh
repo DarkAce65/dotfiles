@@ -35,4 +35,4 @@ function workspaces {
 	done
 }
 
-workspaces | lemonbar -d -n "workspaces" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG &
+workspaces | lemonbar -d -n "workspaces" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG

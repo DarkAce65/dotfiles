@@ -23,4 +23,4 @@ while :; do
 	fi
 	echo "%{c}$(printf '%b' $icon) ${charge}%"
 	sleep 2
-done | lemonbar -d -n "battery" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG &
+done | lemonbar -d -n "battery" -b -g $geometry -f $FONT -f $FONT_ICON -F $FG -B $BG
