@@ -42,7 +42,7 @@ super + shift + c
 
 # quit bspwm normally
 super + shift + e
-	bspc quit
+	pkill -x clock.sh; pkill -x workspaces.sh; pkill -x lemonbar; pkill -x dzen2; bspc quit
 
 # close and kill
 super + {_,shift + }q
