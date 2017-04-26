@@ -1,1 +1,3 @@
-zprompt_theme='pure'
+zprompt_theme='lean'
+zhighlighters=(main brackets)
+
