@@ -60,6 +60,7 @@ bspc config focused_border_color  $border
 bspc config presel_feedback_color $border
 
 pkill -x clock.sh
+pkill -x battery.sh
 pkill -x workspaces.sh
 pkill -x lemonbar
 pkill -x dzen2
