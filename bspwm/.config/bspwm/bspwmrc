@@ -8,7 +8,7 @@ bspc config border_width  $BORDER_WIDTH
 bspc config window_gap    $WINDOW_GAP
 
 for side in top right bottom left ; do
-	bspc config ${side}_padding 0
+	bspc config ${side}_padding $((MARGIN + BORDER_WIDTH))
 done
 
 bspc config borderless_monocle  true

@@ -4,8 +4,10 @@ dimensions=$(xrandr | grep '*' | awk {'print $1'})
 SCREENHEIGHT=$(echo $dimensions | cut -d 'x' -f2)
 SCREENWIDTH=$(echo $dimensions | cut -d 'x' -f1)
 
-BORDER_WIDTH=2
-WINDOW_GAP=20
+BORDER_WIDTH=3
+WINDOW_GAP=-$BORDER_WIDTH
+MARGIN=20
+BAR_HEIGHT=35
 FONT='IosevkaTerm:size=9:style=Bold'
 FONT_ICON='WunconSiji:size=8'
 

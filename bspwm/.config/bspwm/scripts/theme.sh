@@ -37,6 +37,7 @@ fi
 
 echo $theme > $tfile
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source $DIR/config.sh
 case $theme in
 	0)
 		cp $DIR/themes/.Xresources.cool ~/.Xresources
@@ -58,6 +59,8 @@ esac
 bspc config normal_border_color    '#444444'
 bspc config focused_border_color   $border_color
 bspc config presel_feedback_color  $border_color
+
+bspc config bottom_padding $((MARGIN + BAR_HEIGHT - WINDOW_GAP))
 
 pkill -x clock.sh
 pkill -x battery.sh

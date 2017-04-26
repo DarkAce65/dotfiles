@@ -3,12 +3,11 @@
 DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $DIR/config.sh
 
-height=35
 width=65
 x=$((SCREENWIDTH / 2 + 110))
 y=10
 
-geometry="${width}x${height}+${x}+${y}"
+geometry="${width}x${BAR_HEIGHT}+${x}+${y}"
 
 while :; do
 	charge=$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')

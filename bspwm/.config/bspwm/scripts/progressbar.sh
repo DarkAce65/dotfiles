@@ -8,12 +8,11 @@ label=${2-'label'}
 barfg=${3-'#888888'}
 barbg=${4-$BAR_BG}
 
-height=35
 width=200
-x=$WINDOW_GAP
-y=$((10 + height))
+x=$MARGIN
+y=$((10 + BAR_HEIGHT))
 
-geometry="${width}x${height}+${x}-${y}"
+geometry="${width}x${BAR_HEIGHT}+${x}-${y}"
 
 pipe='/tmp/progressbar'
 
@@ -23,4 +22,4 @@ if [ ! -e $pipe ]; then
 	rm -f $pipe) &
 fi
 
-(echo $value | gdbar -l $label  -fg $barfg -bg $barbg -w 140; sleep 3) > $pipe
+(echo $value | gdbar -l "${label} " -fg $barfg -bg $barbg -w 140; sleep 3) > $pipe
