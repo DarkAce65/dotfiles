@@ -4,7 +4,7 @@ set laststatus=2
 
 " colors
 syntax on
-let g:lightline = {'colorscheme': 'jellybeans'}
+" let g:lightline = {'colorscheme': 'jellybeans'}
 
 " misc
 set number

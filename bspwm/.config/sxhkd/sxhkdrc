@@ -22,7 +22,7 @@ super + g
 
 # toggle compton
 super + BackSpace
-    ~/.config/compton/comptontoggle.sh
+	~/.config/bspwm/scripts/theme.sh -i
 
 # make sxhkd reload its configuration files:
 super + shift + c
