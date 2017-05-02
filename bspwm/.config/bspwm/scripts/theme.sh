@@ -40,17 +40,17 @@ DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 source $DIR/config.sh
 case $theme in
 	0)
-		cp $DIR/themes/.Xresources.cool ~/.Xresources
+		cp $HOME/.config/themes/.Xresources.cool ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/skyline.png
 		border_color='#3ea290'
 		;;
 	1)
-		cp $DIR/themes/.Xresources.warm ~/.Xresources
+		cp $HOME/.config/themes/.Xresources.warm ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/landscape.jpg
 		border_color='#fd7e49'
 		;;
 	2)
-		cp $DIR/themes/.Xresources.mono ~/.Xresources
+		cp $HOME/.config/themes/.Xresources.mono ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/mono.png
 		border_color='#aaaaaa'
 		;;
