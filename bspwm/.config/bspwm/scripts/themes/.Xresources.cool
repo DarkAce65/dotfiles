@@ -29,20 +29,20 @@ URxvt.foreground:   #ffffff
 URxvt.background:   rgba:0000/0000/0000/dd00
 URxvt.cursorColor:  #ffffff
 
-URxvt.color0:       #3d3d3d
-URxvt.color1:       #6673bf
-URxvt.color2:       #3ea290
-URxvt.color3:       #b0ead9
-URxvt.color4:       #31658c
-URxvt.color5:       #596196
-URxvt.color6:       #8292b2
-URxvt.color7:       #c8cacc
+*.color0:       #3d3d3d
+*.color1:       #6673bf
+*.color2:       #3ea290
+*.color3:       #b0ead9
+*.color4:       #31658c
+*.color5:       #596196
+*.color6:       #8292b2
+*.color7:       #c8cacc
 
-URxvt.color8:       #4d4d4d
-URxvt.color9:       #899aff
-URxvt.color10:      #52ad91
-URxvt.color11:      #98c9bb
-URxvt.color12:      #477ab3
-URxvt.color13:      #7882bf
-URxvt.color14:      #95a7cc
-URxvt.color15:      #edeff2
+*.color8:       #4d4d4d
+*.color9:       #899aff
+*.color10:      #52ad91
+*.color11:      #98c9bb
+*.color12:      #477ab3
+*.color13:      #7882bf
+*.color14:      #95a7cc
+*.color15:      #edeff2
