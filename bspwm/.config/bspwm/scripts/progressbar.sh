@@ -1,24 +1,23 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/config.sh
-
 value=${1-50}
 label=${2-'label'}
-barfg=${3-'#888888'}
-barbg=${4-$BAR_BG}
+fg=$(crudini --get $HOME/.config/polybar/config 'colors' 'foreground')
+bg=$(crudini --get $HOME/.config/polybar/config 'colors' 'background')
+barfg=${3-$(crudini --get $HOME/.config/polybar/config 'colors' 'bar-foreground')}
+barbg=${4-$(crudini --get $HOME/.config/polybar/config 'colors' 'bar-background')}
 
 width=200
-x=$MARGIN
-y=$((10 + BAR_HEIGHT))
+x=20
+y=45
 
-geometry="${width}x${BAR_HEIGHT}+${x}-${y}"
+geometry="${width}x35+${x}-${y}"
 
 pipe='/tmp/progressbar'
 
 if [ ! -e $pipe ]; then
 	mkfifo $pipe
-	(dzen2 -geometry $geometry -fn $FONT -fg $FG -bg $BG < $pipe
+	(dzen2 -geometry $geometry -fn 'IosevkaTerm:size=9:style=bold' -fg $fg -bg $bg < $pipe
 	rm -f $pipe) &
 fi
 

@@ -5,7 +5,8 @@
 - [zim](https://github.com/eriner/zim) - Shell
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
     - [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon for bspwm
-- [lemonbar](https://github.com/LemonBoy/bar) - Status bar
+- [polybar](https://github.com/jaagr/polybar) - Status bar
+    - [crudini](https://github.com/baskerville/sxhkd) - ini manipulator
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [dzen2](https://github.com/robm/dzen) - Menuing program
 - [feh](https://github.com/derf/feh) - For desktop wallpaper

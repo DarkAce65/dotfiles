@@ -1,8 +1,5 @@
 #!/bin/bash
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/config.sh
-
 step=${2-2}
 
 case $1 in
@@ -26,8 +23,8 @@ if [[ $muted == "off" ]]; then
 	fg='#888888'
 else
 	label="$volume%"
-	fg=$BAR_FG
+	fg=$(crudini --get $HOME/.config/polybar/config 'colors' 'bar-foreground')
 fi
 label=$(printf '%4s' $label)
 
-$DIR/progressbar.sh $volume $label $fg
+$HOME/.config/bspwm/scripts/progressbar.sh $volume "${label}" $fg

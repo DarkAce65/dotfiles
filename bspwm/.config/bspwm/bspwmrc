@@ -1,14 +1,11 @@
 #!/bin/sh
 
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/scripts/config.sh
-
 # bspc config
-bspc config border_width  $BORDER_WIDTH
-bspc config window_gap    $WINDOW_GAP
+bspc config border_width  3
+bspc config window_gap   -3
 
 for side in top right bottom left ; do
-	bspc config ${side}_padding $((MARGIN + BORDER_WIDTH))
+	bspc config ${side}_padding 23
 done
 
 bspc config borderless_monocle  true
@@ -26,10 +23,17 @@ bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+dimensions=$(xrandr | grep '*' | awk {'print $1'})
+height=$(echo $dimensions | cut -d 'x' -f2)
+width=$(echo $dimensions | cut -d 'x' -f1)
+crudini --set $HOME/.config/polybar/config positions 'clock-x' $((width / 2 - 100))
+crudini --set $HOME/.config/polybar/config positions 'battery-x' $((width / 2 + 110))
+crudini --set $HOME/.config/polybar/config positions 'workspaces-x' $((width - 220))
 
 # start background services
-mpd ~/.config/mpd/mpd.conf
+$HOME/.config/bspwm/scripts/theme.sh
+compton --config ~/.config/compton/compton.conf &
 xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
-$DIR/scripts/theme.sh &
-compton --config ~/.config/compton/compton.conf &
+$HOME/.config/polybar/launch.sh &
+mpd ~/.config/mpd/mpd.conf

@@ -1,0 +1,64 @@
+[positions]
+clock-x = 700
+battery-x = 910
+workspaces-x = 1380
+
+[colors]
+foreground = #0e0e31
+background = #b0b0eb
+accent = #4d4dc4
+bar-foreground = #1b95ad
+bar-background = #0e0e31
+
+[global/wm]
+margin-top = 13
+
+[bar/common]
+height = 35
+offset-y = 10
+bottom = true
+foreground = ${colors.foreground}
+background = ${colors.background}
+font-0 = IosevkaTerm:size=9:style=bold;2
+font-1 = WunconSiji:pixelsize=10;2
+wm-restack = bspwm
+
+[bar/clock]
+inherit = bar/common
+width = 200
+offset-x = ${positions.clock-x}
+modules-center = date
+
+[bar/battery]
+inherit = bar/common
+width = 65
+offset-x = ${positions.battery-x}
+modules-center = battery
+
+[bar/workspaces]
+inherit = bar/common
+width = 200
+offset-x = ${positions.workspaces-x}
+modules-center = workspaces
+
+[module/date]
+type = internal/date
+label = %date% %time%
+date = %a %b %d
+time = %l:%M %p
+
+[module/battery]
+type = internal/battery
+battery = BAT1
+adapter = ADP1
+label-charging =  %percentage%%
+format-discharging = <ramp-capacity> <label-discharging>
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+
+[module/workspaces]
+type = custom/script
+label-font = 2
+exec = $HOME/.config/polybar/workspaces.sh
+tail = true

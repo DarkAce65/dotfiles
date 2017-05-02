@@ -6,18 +6,18 @@ if [[ ! -e $tfile ]]; then
 fi
 
 if [[ $# -eq 0 ]]; then
-	theme=$(cat $tfile)
+	tnum=$(cat $tfile)
 else
 	while [[ $# -gt 0 ]]; do
 		case $1 in
 			-i|--inc)
 				shift
-				theme=$(($(cat $tfile) + 1))
+				tnum=$(($(cat $tfile) + 1))
 				;;
 			-s|--set)
 				shift
 				if [[ $# -gt 0 ]]; then
-					theme=$1
+					tnum=$1
 				else
 					echo 'No theme specified.'
 					exit 1
@@ -31,28 +31,26 @@ else
 	done
 fi
 
-if [[ $theme -gt 2 ]]; then
-	theme=0
+if [[ $tnum -lt 0 || $tnum -gt 2 ]]; then
+	tnum=0
 fi
 
-echo $theme > $tfile
-DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-source $DIR/config.sh
-case $theme in
+echo $tnum > $tfile
+case $tnum in
 	0)
-		cp $HOME/.config/themes/.Xresources.cool ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/skyline.png
 		border_color='#3ea290'
+		theme='.cool'
 		;;
 	1)
-		cp $HOME/.config/themes/.Xresources.warm ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/landscape.jpg
 		border_color='#fd7e49'
+		theme='.warm'
 		;;
 	2)
-		cp $HOME/.config/themes/.Xresources.mono ~/.Xresources
 		feh --bg-fill /usr/share/backgrounds/mono.png
 		border_color='#aaaaaa'
+		theme='.mono'
 		;;
 esac
 
@@ -60,18 +58,8 @@ bspc config normal_border_color    '#444444'
 bspc config focused_border_color   $border_color
 bspc config presel_feedback_color  $border_color
 
-bspc config bottom_padding $((MARGIN + BAR_HEIGHT - WINDOW_GAP))
+killall -q dzen2
 
-pkill -x clock.sh
-pkill -x battery.sh
-pkill -x workspaces.sh
-pkill -x lemonbar
-pkill -x dzen2
-$DIR/clock.sh &
-$DIR/battery.sh &
-$DIR/workspaces.sh &
-xrdb ~/.Xresources
-sleep 0.5
-xdo below -t $(xdo id -n root) $(xdo id -a clock)
-xdo below -t $(xdo id -n root) $(xdo id -a battery)
-xdo below -t $(xdo id -n root) $(xdo id -a workspaces)
+cp "${HOME}/.config/themes/.Xresources${theme}" $HOME/.Xresources
+crudini --merge $HOME/.config/polybar/config < "${HOME}/.config/themes/colors${theme}"
+xrdb $HOME/.Xresources
