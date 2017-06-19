@@ -63,3 +63,4 @@ killall -q dzen2
 cp "${HOME}/.config/themes/.Xresources${theme}" $HOME/.Xresources
 crudini --merge $HOME/.config/polybar/config < "${HOME}/.config/themes/colors${theme}"
 xrdb $HOME/.Xresources
+$HOME/.config/polybar/launch.sh

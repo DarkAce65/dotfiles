@@ -7,6 +7,8 @@ killall -q polybar
 while pgrep -x polybar >/dev/null; do sleep 0.5; done
 
 # Launch bars
-polybar -r clock &
-polybar -r battery &
-polybar -r workspaces &
+polybar volume &
+polybar backlight &
+polybar clock &
+polybar battery &
+polybar workspaces &

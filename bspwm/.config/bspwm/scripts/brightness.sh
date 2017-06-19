@@ -21,7 +21,3 @@ fi
 
 echo $percentage > $temp
 xbacklight -set $percentage -fps 30 &
-label="${percentage}%"
-label=$(printf '%4s' $label)
-
-$HOME/.config/bspwm/scripts/progressbar.sh $percentage "${label}"

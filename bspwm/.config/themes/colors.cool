@@ -1,6 +1,6 @@
 [colors]
-foreground = #0e0e31
-background = #b0b0eb
+foreground = #c0c0fb
+background = #00000000
 accent = #4d4dc4
-bar-foreground = #1b95ad
+bar-foreground = #2f2fbe
 bar-background = #0e0e31

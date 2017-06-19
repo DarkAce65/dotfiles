@@ -32,7 +32,7 @@ super + shift + c
 {XF86MonBrightnessUp,XF86MonBrightnessDown}
 	~/.config/bspwm/scripts/brightness.sh {up,down}
 {XF86AudioRaiseVolume,XF86AudioLowerVolume,XF86AudioMute}
-	~/.config/bspwm/scripts/volume.sh {up,down,mute}
+	amixer sset Master {2%+ unmute,2%- unmute,toggle}
 {XF86AudioPrev,XF86AudioPlay,XF86AudioNext}
 	playerctl {previous,play-pause,next}
 
@@ -42,7 +42,7 @@ super + shift + c
 
 # quit bspwm normally
 super + shift + e
-	pkill -x clock.sh; pkill -x battery.sh; pkill -x workspaces.sh; pkill -x lemonbar; pkill -x dzen2; bspc quit
+	killall -q polybar; killall -q dzen2; bspc quit
 
 # close and kill
 super + {_,shift + }q

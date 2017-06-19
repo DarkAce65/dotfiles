@@ -1,50 +1,73 @@
+; Variables
 [positions]
 clock-x = 700
 battery-x = 910
-workspaces-x = 1380
+bars-x = 1380
+workspaces-x = 20
 
 [colors]
-foreground = #0e0e31
-background = #b0b0eb
-accent = #4d4dc4
-bar-foreground = #1b95ad
-bar-background = #0e0e31
+foreground = #fedac4
+background = #00000000
+accent = #fd7e49
+bar-foreground = #d15e34
+bar-background = #4c1a48
 
 [global/wm]
 margin-top = 13
 
-[bar/common]
-height = 35
+; Defaults
+[bar/_common]
+monitor = "LVDS-1"
+height = 34
+width = 200
 offset-y = 10
 bottom = true
 foreground = ${colors.foreground}
 background = ${colors.background}
-font-0 = IosevkaTerm:size=9:style=bold;2
-font-1 = WunconSiji:pixelsize=10;2
+font-0 = "IosevkaTerm:size=9:style=bold;2"
+font-1 = "WunconSiji:pixelsize=10;2"
+font-2 = "DejaVu Sans Mono:size=9:style=bold;-2"
 wm-restack = bspwm
 
+[bar/_half]
+inherit = bar/_common
+height = 17
+font-0 = "IosevkaTerm:size=8:style=bold;2"
+
+; Bars
 [bar/clock]
-inherit = bar/common
-width = 200
+inherit = bar/_common
 offset-x = ${positions.clock-x}
 modules-center = date
 
 [bar/battery]
-inherit = bar/common
+inherit = bar/_common
+font-1 = "WunconSiji:pixelsize=10;1"
 width = 65
 offset-x = ${positions.battery-x}
 modules-center = battery
 
-[bar/workspaces]
-inherit = bar/common
-width = 200
-offset-x = ${positions.workspaces-x}
-modules-center = workspaces
+[bar/volume]
+inherit = bar/_half
+offset-x = ${positions.bars-x}
+offset-y = 27
+modules-right = volume
 
+[bar/backlight]
+inherit = bar/_half
+offset-x = ${positions.bars-x}
+modules-right = backlight
+
+[bar/workspaces]
+inherit = bar/_common
+offset-x = ${positions.workspaces-x}
+modules-left = workspaces
+
+; Modules
 [module/date]
 type = internal/date
 label = %date% %time%
-date = %a %b %d
+date = %A %b %d
 time = %l:%M %p
 
 [module/battery]
@@ -56,6 +79,34 @@ format-discharging = <ramp-capacity> <label-discharging>
 ramp-capacity-0 = 
 ramp-capacity-1 = 
 ramp-capacity-2 = 
+
+[module/volume]
+type = internal/volume
+format-volume = <label-volume> <ramp-volume> %{T3}<bar-volume>%{T-}
+label-volume = %percentage:3%%
+format-muted = Mute  %{T3}<bar-volume>%{T-}
+ramp-volume-0 = 
+bar-volume-width = 18
+bar-volume-indicator = ▄
+bar-volume-fill = ▄
+bar-volume-empty = ▄
+bar-volume-indicator-foreground = ${colors.bar-foreground}
+bar-volume-fill-foreground = ${colors.bar-foreground}
+bar-volume-empty-foreground = ${colors.bar-background}
+
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+format = <label> <ramp> %{T3}<bar>%{T-}
+label = %percentage:3%%
+ramp-0 = 
+bar-width = 18
+bar-indicator = ▄
+bar-fill = ▄
+bar-empty = ▄
+bar-indicator-foreground = ${colors.bar-foreground}
+bar-fill-foreground = ${colors.bar-foreground}
+bar-empty-foreground = ${colors.bar-background}
 
 [module/workspaces]
 type = custom/script
