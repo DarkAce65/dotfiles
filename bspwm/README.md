@@ -8,7 +8,6 @@
 - [polybar](https://github.com/jaagr/polybar) - Status bar
     - [crudini](https://github.com/baskerville/sxhkd) - ini manipulator
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
-- [dzen2](https://github.com/robm/dzen) - Menuing program
 - [feh](https://github.com/derf/feh) - For desktop wallpaper
 - [compton](https://github.com/chjj/compton) - For transparency, shadows, and animations
 
@@ -20,7 +19,6 @@
 ### Installation
 Copy the following files and folders to their respective destinations
 - **.config** folder, **.vimrc**, **.Xresources**, **.zimrc**, and **.zshrc** > ~/
-- **custom.zsh-theme** > /usr/share/oh-my-zsh/custom/
 - images > /usr/share/backgrounds/
 
 ### Credits
