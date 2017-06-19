@@ -38,14 +38,14 @@ fi
 echo $tnum > $tfile
 case $tnum in
 	0)
-		feh --bg-fill /usr/share/backgrounds/skyline.png
-		border_color='#3ea290'
-		theme='.cool'
-		;;
-	1)
 		feh --bg-fill /usr/share/backgrounds/landscape.jpg
 		border_color='#fd7e49'
 		theme='.warm'
+		;;
+	1)
+		feh --bg-fill /usr/share/backgrounds/skyline.png
+		border_color='#3ea290'
+		theme='.cool'
 		;;
 	2)
 		feh --bg-fill /usr/share/backgrounds/mono.png
