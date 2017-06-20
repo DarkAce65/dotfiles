@@ -1,5 +1,8 @@
 # bspwm dotfiles
 ---
+### Screenshots
+<img src="screenshots/warm.png" width="33%"><img src="screenshots/cool.png" width="33%"><img src="screenshots/mono.png" width="33%">
+
 ### Dependency list
 - [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) - Terminal
 - [zim](https://github.com/eriner/zim) - Shell
@@ -22,6 +25,6 @@ Copy the following files and folders to their respective destinations
 - images > /usr/share/backgrounds/
 
 ### Credits
-- skyline.png - [The Hamster Alliance](http://www.hamsteralliance.com/)
 - landscape.jpg - [EocDesigns](http://eocdesigns.deviantart.com/art/Flat-Landscape-554894483)
+- skyline.png - [The Hamster Alliance](http://www.hamsteralliance.com/)
 - mono.png - [unscenemedia](http://unscenemedia.deviantart.com/art/Low-Poly-Dual-Screen-Wallpaper-580474565)
