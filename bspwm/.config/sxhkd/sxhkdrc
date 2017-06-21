@@ -20,7 +20,7 @@ super + n
 super + g
 	google-chrome-stable
 
-# toggle compton
+# change theme
 super + BackSpace
 	~/.config/bspwm/scripts/theme.sh -i
 
