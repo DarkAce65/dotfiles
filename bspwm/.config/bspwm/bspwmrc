@@ -28,7 +28,7 @@ height=$(echo $dimensions | cut -d 'x' -f2)
 width=$(echo $dimensions | cut -d 'x' -f1)
 crudini --set $HOME/.config/polybar/config positions 'clock-x' $((width / 2 - 100))
 crudini --set $HOME/.config/polybar/config positions 'battery-x' $((width / 2 + 110))
-crudini --set $HOME/.config/polybar/config positions 'workspaces-x' 20
+crudini --set $HOME/.config/polybar/config positions 'workspaces-x' 10
 crudini --set $HOME/.config/polybar/config positions 'bars-x' $((width - 220))
 
 # start background services
