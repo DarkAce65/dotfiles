@@ -8,8 +8,7 @@
 - [zim](https://github.com/eriner/zim) - Shell
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
     - [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon for bspwm
-- [polybar](https://github.com/jaagr/polybar) - Status bar
-    - [crudini](https://github.com/baskerville/sxhkd) - ini manipulator
+- [lemonbar](https://github.com/LemonBoy/bar) - Status bar
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [feh](https://github.com/derf/feh) - For desktop wallpaper
 - [compton](https://github.com/chjj/compton) - For transparency, shadows, and animations

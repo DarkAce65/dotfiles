@@ -58,7 +58,7 @@ bspc config normal_border_color    '#444444'
 bspc config focused_border_color   $border_color
 bspc config presel_feedback_color  $border_color
 
+$HOME/.config/themes/colors$theme
 cp "${HOME}/.config/themes/.Xresources${theme}" $HOME/.Xresources
-crudini --merge $HOME/.config/polybar/config < "${HOME}/.config/themes/colors${theme}"
 xrdb $HOME/.Xresources
-$HOME/.config/polybar/launch.sh
+$HOME/.config/lemonbar/launch.sh

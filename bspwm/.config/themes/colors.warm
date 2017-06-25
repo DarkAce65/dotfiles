@@ -1,6 +1,7 @@
-[colors]
-foreground = #fedac4
-background = #00000000
-accent = #fd7e49
-bar-foreground = #d15e34
-bar-background = #4c1a48
+#!/bin/bash
+
+sed -i "s/^\(foreground=\).*/\1'#fedac4'/" $HOME/.config/lemonbar/config
+sed -i "s/^\(background=\).*/\1'#00000000'/" $HOME/.config/lemonbar/config
+sed -i "s/^\(accent=\).*/\1'#fd7e49'/" $HOME/.config/lemonbar/config
+sed -i "s/^\(barfg=\).*/\1'#d15e34'/" $HOME/.config/lemonbar/config
+sed -i "s/^\(barbg=\).*/\1'#4c1a48'/" $HOME/.config/lemonbar/config

@@ -42,7 +42,7 @@ super + shift + c
 
 # quit bspwm normally
 super + shift + e
-	killall -q polybar; killall -q dzen2; bspc quit
+	killall -q lemonbar; bspc quit
 
 # close and kill
 super + {_,shift + }q

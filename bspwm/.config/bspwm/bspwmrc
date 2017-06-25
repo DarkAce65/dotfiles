@@ -7,6 +7,7 @@ bspc config window_gap   -3
 for side in top right bottom left ; do
 	bspc config ${side}_padding 23
 done
+bspc config bottom_padding 57
 
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
@@ -26,15 +27,12 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 dimensions=$(xrandr | grep '*' | awk {'print $1'})
 height=$(echo $dimensions | cut -d 'x' -f2)
 width=$(echo $dimensions | cut -d 'x' -f1)
-crudini --set $HOME/.config/polybar/config positions 'clock-x' $((width / 2 - 100))
-crudini --set $HOME/.config/polybar/config positions 'battery-x' $((width / 2 + 110))
-crudini --set $HOME/.config/polybar/config positions 'workspaces-x' 10
-crudini --set $HOME/.config/polybar/config positions 'bars-x' $((width - 220))
+sed -i "s/^\(height=\).*/\1${height}/" $HOME/.config/lemonbar/config
+sed -i "s/^\(width=\).*/\1${width}/" $HOME/.config/lemonbar/config
 
 # start background services
 $HOME/.config/bspwm/scripts/theme.sh
 compton --config ~/.config/compton/compton.conf &
 xsetroot -cursor_name left_ptr
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
-$HOME/.config/polybar/launch.sh &
 mpd ~/.config/mpd/mpd.conf

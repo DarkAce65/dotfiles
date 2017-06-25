@@ -1,0 +1,15 @@
+# Dimensions
+height=800
+width=1600
+
+# Fonts
+font='IosevkaTerm:size=9:style=bold'
+smallfont='IosevkaTerm:size=8:style=bold'
+iconfont='WunconSiji'
+
+# Colors
+foreground='#c0c0fb'
+background='#00000000'
+accent='#4d4dc4'
+barfg='#2f2fbe'
+barbg='#0e0e31'
