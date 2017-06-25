@@ -5,7 +5,8 @@ x=$((width - 220))
 geometry="200x17+${x}+10"
 
 while :; do
-	volume=$(xbacklight -get)
-	echo "%{r}${volume}% bar"
+	brightness=$(xbacklight -get)
+	bar=$($HOME/.config/lemonbar/bar.sh $brightness)
+	echo "%{r}${brightness}% %{T3}${bar}%{T-}"
 	sleep 2
-done | lemonbar -bd -n 'brightness' -g $geometry -f $font -f $iconfont':pixelsize=16' -F $foreground -B $background
+done | lemonbar -bd -n 'brightness' -g $geometry -f "${smallfont}" -f "${iconfont}:pixelsize=16" -f "${barfont}" -F $foreground -B $background

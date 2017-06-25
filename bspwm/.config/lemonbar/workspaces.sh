@@ -28,4 +28,4 @@ function workspaces {
 	done
 }
 
-workspaces | lemonbar -bd -n 'workspaces' -g $geometry -f $font -f $iconfont':pixelsize=10' -F $foreground -B $background
+workspaces | lemonbar -bd -n 'workspaces' -g $geometry -o -1 -f "${iconfont}:pixelsize=10" -f "${font}" -F $foreground -B $background

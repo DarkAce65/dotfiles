@@ -1,15 +1,16 @@
 # Dimensions
-height=800
+height=900
 width=1600
 
 # Fonts
 font='IosevkaTerm:size=9:style=bold'
 smallfont='IosevkaTerm:size=8:style=bold'
+barfont='DejaVu Sans Mono:size=9:antialias=false'
 iconfont='WunconSiji'
 
 # Colors
-foreground='#c0c0fb'
+foreground='#fedac4'
 background='#00000000'
-accent='#4d4dc4'
-barfg='#2f2fbe'
-barbg='#0e0e31'
+accent='#fd7e49'
+barfg='#d15e34'
+barbg='#4c1a48'
