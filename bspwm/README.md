@@ -1,7 +1,7 @@
 # bspwm dotfiles
 ---
 ### Screenshots
-<img src="screenshots/warm.png" width="33%"><img src="screenshots/cool.png" width="33%"><img src="screenshots/mono.png" width="33%">
+<img src="screenshots/warm.png?raw=true" width="33%"><img src="screenshots/cool.png?raw=true" width="33%"><img src="screenshots/mono.png?raw=true" width="33%">
 
 ### Dependency list
 - [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) - Terminal
