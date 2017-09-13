@@ -1,10 +1,11 @@
 #!/bin/bash
 
 # Terminate already running bar instances
-killall -q lemonbar
-
-# Wait until the processes have been shut down
-while pgrep -x lemonbar > /dev/null; do sleep 0.5; done
+killall workspaces.sh
+killall clock.sh
+killall battery.sh
+killall volume.sh
+killall brightness.sh
 
 # Launch bars
 $HOME/.config/lemonbar/workspaces.sh &
