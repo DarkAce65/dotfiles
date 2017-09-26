@@ -20,8 +20,15 @@
 
 ### Installation
 Copy the following files and folders to their respective destinations
-- **.config** folder, **.vimrc**, **.Xresources**, **.zimrc**, and **.zshrc** > ~/
+- **.config** folder, **.vimrc**, **.zimrc**, and **.zshrc** > ~/
+- **.Xresources** will be overwritten by custom themes
 - images > /usr/share/backgrounds/
+
+### Themes
+- Ctrl + Backspace cycles between the three themes
+- To set the default theme, add the -s <number> parameter to the bspwmrc on line 35
+
+ex. `...theme.sh -s 0`, `...theme.sh -s 1`, or `...theme.sh -s 2`
 
 ### Credits
 - landscape.jpg - [EocDesigns](http://eocdesigns.deviantart.com/art/Flat-Landscape-554894483)
