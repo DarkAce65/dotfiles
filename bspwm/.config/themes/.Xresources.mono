@@ -20,6 +20,7 @@ URxvt.geometry: 80x20
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
 URxvt.lineSpace: 2
+URxvt.letterSpace: 1
 URxvt.internalBorder: 15
 
 ! Transparency
