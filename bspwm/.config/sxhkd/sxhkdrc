@@ -8,13 +8,17 @@ super + t
 
 # program launcher
 super + @d
-	rofi -show run
+	rofi -modi drun -show drun
 
 # audio
 super + a
 	urxvt -name alsamixer -e alsamixer
 super + n
 	urxvt -name ncmpcpp -e ncmpcpp
+
+# sublime text
+super + s
+	subl
 
 # google chrome
 super + g
@@ -42,7 +46,7 @@ XF86Audio{Prev,Play,Next}
 
 # quit bspwm normally
 super + shift + e
-	killall -q lemonbar; bspc quit
+	killall workspaces.sh; killall clock.sh; killall battery.sh; killall volume.sh; killall brightness.sh; bspc quit
 
 # close and kill
 super + {_,shift + }q

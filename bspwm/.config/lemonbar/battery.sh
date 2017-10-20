@@ -18,4 +18,4 @@ while :; do
 	fi
 	echo "%{c}${icon}${charge}%"
 	sleep 15
-done | lemonbar -bd -n 'battery' -g $geometry -f "${font}" -f "${iconfont}:pixelsize=14" -F $foreground -B $background
+done | lemonbar -bd -n battery -g $geometry -f "${font}" -f "${iconfont}:pixelsize=14" -F $foreground -B $background

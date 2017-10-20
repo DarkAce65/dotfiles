@@ -15,6 +15,7 @@
 
 ##### Extras
 - vim with [pathogen](https://github.com/tpope/vim-pathogen) and [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
+    - [vimtex](https://github.com/lervag/vimtex) with [mupdf](https://mupdf.com/) - LaTeX editor
 - [neofetch](https://github.com/dylanaraps/neofetch) - Sysinfo script
 - xorg-xbacklight - Backlight control
 

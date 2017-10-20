@@ -15,4 +15,4 @@ while :; do
 		echo "%{r}${volume}% %{T3}${bar}%{T-}"
 	fi
 	sleep 2
-done | lemonbar -bd -n 'volume' -g $geometry -o -1 -f "${smallfont}" -f "${iconfont}:pixelsize=16" -f "${barfont}" -F $foreground -B $background
+done | lemonbar -bd -n volume -g $geometry -o -1 -f "${smallfont}" -f "${iconfont}:pixelsize=16" -f "${barfont}" -F $foreground -B $background

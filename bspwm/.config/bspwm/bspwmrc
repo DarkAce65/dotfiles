@@ -22,6 +22,7 @@ bspc rule -a URxvt:alsamixer state=floating
 bspc rule -a Gpick state=floating
 bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
+bspc rule -a Raco state=floating
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 dimensions=$(xrandr | grep '*' | awk {'print $1'})
