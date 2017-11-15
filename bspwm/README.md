@@ -27,11 +27,11 @@ Copy the following files and folders to their respective destinations
 
 ### Themes
 - Ctrl + Backspace cycles between the three themes
-- To set the default theme, add the -s <number> parameter to the bspwmrc on line 35
+- To set the default theme, add the -s <number> parameter to the bspwmrc on line 36
 
 ex. `...theme.sh -s 0`, `...theme.sh -s 1`, or `...theme.sh -s 2`
 
 ### Credits
-- landscape.jpg - [EocDesigns](http://eocdesigns.deviantart.com/art/Flat-Landscape-554894483)
+- landscape.jpg - [ggiuliafilippini](https://ggiuliafilippini.deviantart.com/art/Flat-Mountains-Landscape-543137208)
 - skyline.png - [The Hamster Alliance](http://www.hamsteralliance.com/)
 - mono.png - [unscenemedia](http://unscenemedia.deviantart.com/art/Low-Poly-Dual-Screen-Wallpaper-580474565)
