@@ -1,0 +1,26 @@
+{
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.renderIndentGuides": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent",
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 0,
+    "extensions.ignoreRecommendations": false,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "guides.active.color.dark": "rgba(254, 128, 25, 0.65)",
+    "guides.stack.color.dark": "rgba(214, 93, 14, 0.4)",
+    "html.autoClosingTags": false,
+    "html.format.extraLiners": "",
+    "html.format.indentInnerHtml": true,
+    "sublimeTextKeymap.promptV3Features": true,
+    "workbench.colorCustomizations": {
+        "editor.selectionBackground": "#d65d0eaa"
+    },
+    "workbench.colorTheme": "Gruvbox Dark (Hard)",
+    "workbench.startupEditor": "newUntitledFile",
+    "xmlTools.splitXmlnsOnFormat": false,
+}
