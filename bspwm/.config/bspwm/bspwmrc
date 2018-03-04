@@ -18,8 +18,9 @@ bspc config initial_polarity    second_child
 bspc monitor -d 1 2 3 4 5 6 7 8 9 0
 
 # rules
-bspc rule -a URxvt:alsamixer state=floating
+bspc rule -a URxvt:pulsemixer state=floating
 bspc rule -a Gpick state=floating
+bspc rule -a Firefox border=off
 bspc rule -a feh state=floating manage=off
 bspc rule -a lemonbar state=floating manage=off
 bspc rule -a Raco state=floating
@@ -32,6 +33,7 @@ sed -i "s/^\(height=\).*/\1${height}/" $HOME/.config/lemonbar/config
 sed -i "s/^\(width=\).*/\1${width}/" $HOME/.config/lemonbar/config
 
 # start background services
+xrandr --output LVDS-1 --gamma 1.0:0.85:0.9
 $HOME/.config/bspwm/scripts/theme.sh
 compton --config ~/.config/compton/compton.conf &
 xsetroot -cursor_name left_ptr

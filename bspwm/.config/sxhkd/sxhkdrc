@@ -12,17 +12,17 @@ super + @d
 
 # audio
 super + a
-	urxvt -name alsamixer -e alsamixer
+	urxvt -name pulsemixer -e pulsemixer
 super + n
 	urxvt -name ncmpcpp -e ncmpcpp
 
-# sublime text
+# vscode
 super + s
-	subl
+	code-oss
 
-# google chrome
+# firefox
 super + g
-	google-chrome-stable
+	firefox
 
 # change theme
 super + BackSpace
