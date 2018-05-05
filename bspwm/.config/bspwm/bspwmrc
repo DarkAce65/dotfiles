@@ -33,7 +33,6 @@ sed -i "s/^\(height=\).*/\1${height}/" $HOME/.config/lemonbar/config
 sed -i "s/^\(width=\).*/\1${width}/" $HOME/.config/lemonbar/config
 
 # start background services
-xrandr --output LVDS-1 --gamma 1.0:0.85:0.9
 $HOME/.config/bspwm/scripts/theme.sh
 compton --config ~/.config/compton/compton.conf &
 xsetroot -cursor_name left_ptr
