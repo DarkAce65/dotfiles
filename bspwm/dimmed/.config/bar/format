@@ -1,0 +1,36 @@
+#!/bin/bash
+
+dir="${BASH_SOURCE%/*}"
+if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
+source "${dir}/config"
+
+while read -r line ; do
+    case $line in
+        TITLE*)
+            if [ "$line" = "TITLE" ]; then
+                title=""
+            else
+                title="%{B${HIGHLIGHT}}%{F${BACKGROUND}} ${line/TITLE} %{F-}%{B-}"
+            fi
+            ;;
+        BRIGHTNESS*)
+            brightness=" ${line/BRIGHTNESS} "
+            ;;
+        VOLUME*)
+            volume=" ${line/VOLUME} "
+            ;;
+        WIFI*)
+            wifi=" ${line/WIFI} "
+            ;;
+        BATTERY*)
+            battery=" ${line/BATTERY} "
+            ;;
+        DATE*)
+            date=" ${line/DATE} "
+            ;;
+        TIME*)
+            time="%{B${HIGHLIGHT}}%{F${BACKGROUND}} ${line/TIME} %{F-}%{B-}"
+            ;;
+    esac
+    printf "%s\n" "${title}%{r}%{F${NORMAL}}${brightness}${volume}${wifi}${battery}${date}%{F-}${time}"
+done

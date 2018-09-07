@@ -1,0 +1,90 @@
+#!/bin/bash
+
+dir="${BASH_SOURCE%/*}"
+if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
+source "${dir}/config"
+
+trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
+
+[ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
+mkfifo "$BAR_FIFO"
+
+xtitle -sf '%u\n' | while read -r wid ; do
+    if [[ $wid -eq 0 ]]; then
+        class=''
+    else
+        class="$(xwinfo -c $wid)"
+    fi
+
+    printf 'TITLE%s\n' "$class"
+done > "$BAR_FIFO" &
+
+while true ; do
+    brightness=$(xbacklight -get)
+    icon='\uF0EB'
+
+    printf "BRIGHTNESS%s ${icon}\n" "${brightness}%"
+    sleep 120
+done > "$BAR_FIFO" &
+
+pactl subscribe | while read -r line ; do
+    if [[ $line = *"Event 'change' on sink #0"* ]]; then
+        sinks="$(pactl list sinks)"
+        volume="$(echo "$sinks" | grep -i volume | head -n 1 | awk '{print $5}')"
+        mute="$(echo "$sinks" | grep -i mute | head -n 1 | awk '{print $2}')"
+
+        if [[ "$mute" == 'yes' ]]; then
+            icon='\uF026'
+        else
+            icon='\uF028'
+        fi
+
+        printf "VOLUME%s ${icon}\n" "$volume"
+    fi
+done > "$BAR_FIFO" &
+
+while true ; do
+    icon=''
+    ssid="$(iw dev wlp2s0 link | grep -i ssid | awk '{print $2}')"
+    if [[ "$ssid" != '' ]]; then
+        icon='\uF1EB'
+    fi
+
+    printf "WIFI%s ${icon}\n" "$ssid"
+    sleep 120
+done > "$BAR_FIFO" &
+
+while true ; do
+    charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
+
+    if [[ $(cat /sys/class/power_supply/AC/online) -eq 1 ]]; then
+        icon='\uF1E6'
+    elif [[ $charge -le 15 ]]; then
+        icon='\uF244'
+    elif [[ $charge -le 30 ]]; then
+        icon='\uF243'
+    elif [[ $charge -le 50 ]]; then
+        icon='\uF242'
+    elif [[ $charge -le 75 ]]; then
+        icon='\uF241'
+    else
+        icon='\uF240'
+    fi
+
+    printf "BATTERY%s ${icon}\n" "${charge}%"
+    sleep 120
+done > "$BAR_FIFO" &
+
+while true ; do
+    printf 'DATE%s\n' "$(date +"%a %e")"
+    sleep 120
+done > "$BAR_FIFO" &
+
+while true ; do
+    printf 'TIME%s\n' "$(date +"%_I:%M %p")"
+    sleep 30
+done > "$BAR_FIFO" &
+
+"${dir}/format" < "$BAR_FIFO" | lemonbar -bp -g '2500x30+30+30' -f 'Roboto Mono:size=9' -f 'Font Awesome:size=10' &
+
+wait

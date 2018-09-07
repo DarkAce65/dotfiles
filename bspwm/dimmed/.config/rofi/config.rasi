@@ -1,0 +1,10 @@
+configuration {
+    width: 100;
+    padding: 800;
+    lines: 9;
+    font: "Roboto Mono 24";
+    bw: 0;
+    separator-style: "solid";
+    color-normal: "argb:00000000, #999999, argb:00000000, argb:00000000, #ccff99";
+    color-window: "argb:ee333333, #ccff99, #ccff99";
+}
