@@ -1,5 +1,5 @@
-# bspwm dotfiles
----
+# seamless
+
 ### Screenshots
 <img src="screenshots/warm.png?raw=true" width="33%"><img src="screenshots/cool.png?raw=true" width="33%"><img src="screenshots/mono.png?raw=true" width="33%">
 
