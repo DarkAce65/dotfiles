@@ -14,6 +14,7 @@ bspc config gapless_monocle     true
 bspc config click_to_focus      true
 bspc config initial_polarity    second_child
 
+bspc config normal_border_color   '#2d2d2d'
 bspc config focused_border_color  '#666666'
 bspc config presel_feedback_color '#666666'
 
@@ -22,6 +23,7 @@ bspc monitor -d 1 2 3 4 5
 
 # rules
 bspc rule -a URxvt:pulsemixer state=floating
+bspc rule -a XTerm state=floating
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 xrandr --dpi 192

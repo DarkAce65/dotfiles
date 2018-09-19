@@ -63,7 +63,7 @@ while true ; do
         icon='\uF244'
     elif [[ $charge -le 30 ]]; then
         icon='\uF243'
-    elif [[ $charge -le 50 ]]; then
+    elif [[ $charge -le 60 ]]; then
         icon='\uF242'
     elif [[ $charge -le 75 ]]; then
         icon='\uF241'
