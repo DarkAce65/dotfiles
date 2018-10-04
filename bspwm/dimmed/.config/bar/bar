@@ -45,7 +45,8 @@ done > "$BAR_FIFO" &
 
 while true ; do
     icon=''
-    ssid="$(iw dev wlp2s0 link | grep -i ssid | awk '{print $2}')"
+    ssid="$(iw dev wlp2s0 link | grep -i ssid)"
+    ssid=${ssid/*SSID: /}
     if [[ "$ssid" != '' ]]; then
         icon='\uF1EB'
     fi
