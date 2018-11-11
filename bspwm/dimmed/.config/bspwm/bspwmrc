@@ -26,11 +26,12 @@ bspc rule -a URxvt:pulsemixer state=floating
 bspc rule -a XTerm state=floating
 
 export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.dpiaware=true -Dsun.java2d.uiScale=2'
 xrandr --dpi 192
 
 # start background services
 xsetroot -cursor_name left_ptr
-hsetroot -solid '#333333'
+feh --bg-fill /usr/share/wallpapers/night.png
 compton --config ~/.config/compton/compton.conf &
 ~/.config/bar/bar &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &
