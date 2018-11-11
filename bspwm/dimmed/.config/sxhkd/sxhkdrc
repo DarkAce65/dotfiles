@@ -4,7 +4,7 @@
 
 # launch terminal
 super + t
-    urxvt
+    cool-retro-term
 
 # program launcher
 super + space
@@ -42,7 +42,7 @@ XF86Audio{Prev,Play,Next}
 
 # quit bspwm normally
 super + shift + e
-    bspc quit
+    pkill -P $(pgrep -ox bar); bspc quit
 
 # close and kill
 super + {_,shift + }q

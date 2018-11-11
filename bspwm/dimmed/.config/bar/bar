@@ -4,8 +4,6 @@ dir="${BASH_SOURCE%/*}"
 if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
 source "${dir}/config"
 
-trap 'trap - TERM; kill 0' INT TERM QUIT EXIT
-
 [ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
 mkfifo "$BAR_FIFO"
 
