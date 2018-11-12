@@ -13,14 +13,11 @@ while read -r line ; do
                 title="%{B${HIGHLIGHT}}%{F${BACKGROUND}} ${line/TITLE} %{F-}%{B-}"
             fi
             ;;
-        BRIGHTNESS*)
-            brightness=" ${line/BRIGHTNESS} "
+        WIFI*)
+            wifi=" ${line/WIFI} "
             ;;
         VOLUME*)
             volume=" ${line/VOLUME} "
-            ;;
-        WIFI*)
-            wifi=" ${line/WIFI} "
             ;;
         BATTERY*)
             battery=" ${line/BATTERY} "
@@ -32,5 +29,5 @@ while read -r line ; do
             time="%{B${HIGHLIGHT}}%{F${BACKGROUND}} ${line/TIME} %{F-}%{B-}"
             ;;
     esac
-    printf "%s\n" "${title}%{r}%{F${NORMAL}}${brightness}${volume}${wifi}${battery}${date}%{F-}${time}"
+    printf "%s%%{r}%s\n" "${title}" "${wifi}${volume}${battery}%{O50}${date}${time}"
 done

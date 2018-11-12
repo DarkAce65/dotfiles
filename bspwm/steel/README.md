@@ -9,6 +9,7 @@
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [feh](https://github.com/derf/feh) - For desktop wallpaper
 - [compton](https://github.com/chjj/compton) - For fading
+- [Feather](https://github.com/feathericons/feather) - Icon font
 
 ##### Extras
 - vim with [pathogen](https://github.com/tpope/vim-pathogen) and [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
@@ -19,3 +20,4 @@
 Copy the following files and folders to their respective destinations
 - **.config** folder and **.Xresources** > ~/
 - images > /usr/share/wallpapers/
+- install feather font

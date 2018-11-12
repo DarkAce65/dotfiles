@@ -18,10 +18,16 @@ xtitle -sf '%u\n' | while read -r wid ; do
 done > "$BAR_FIFO" &
 
 while true ; do
-    brightness=$(xbacklight -get)
-    icon='\uF0EB'
+    ssid="$(iw dev wlp2s0 link | grep -i ssid)"
+    ssid=${ssid/*SSID: /}
+    if [[ -z "$ssid" ]]; then
+        icon='\uea00'
+        printf "WIFI${icon}\n"
+    else
+        icon='\ue9ff'
+        printf "WIFI${icon} %s\n" "$ssid"
+    fi
 
-    printf "BRIGHTNESS%s ${icon}\n" "${brightness}%"
     sleep 120
 done > "$BAR_FIFO" &
 
@@ -29,48 +35,33 @@ pactl subscribe | while read -r line ; do
     if [[ $line = *"Event 'change' on sink #0"* ]]; then
         sinks="$(pactl list sinks)"
         volume="$(echo "$sinks" | grep -i volume | head -n 1 | awk '{print $5}')"
+        volume_num=${volume::-1}
         mute="$(echo "$sinks" | grep -i mute | head -n 1 | awk '{print $2}')"
 
         if [[ "$mute" == 'yes' ]]; then
-            icon='\uF026'
+            icon='\ue9fd'
+        elif [[ "${volume_num}" -lt 5 ]]; then
+            icon='\ue9fa'
+        elif [[ "${volume_num}" -lt 50 ]]; then
+            icon='\ue9fb'
         else
-            icon='\uF028'
+            icon='\ue9fc'
         fi
 
-        printf "VOLUME%s ${icon}\n" "$volume"
+        printf "VOLUME${icon} %s\n" "$volume"
     fi
-done > "$BAR_FIFO" &
-
-while true ; do
-    icon=''
-    ssid="$(iw dev wlp2s0 link | grep -i ssid)"
-    ssid=${ssid/*SSID: /}
-    if [[ "$ssid" != '' ]]; then
-        icon='\uF1EB'
-    fi
-
-    printf "WIFI%s ${icon}\n" "$ssid"
-    sleep 120
 done > "$BAR_FIFO" &
 
 while true ; do
     charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
 
     if [[ $(cat /sys/class/power_supply/AC/online) -eq 1 ]]; then
-        icon='\uF1E6'
-    elif [[ $charge -le 15 ]]; then
-        icon='\uF244'
-    elif [[ $charge -le 30 ]]; then
-        icon='\uF243'
-    elif [[ $charge -le 60 ]]; then
-        icon='\uF242'
-    elif [[ $charge -le 75 ]]; then
-        icon='\uF241'
+        icon='\ue91d'
     else
-        icon='\uF240'
+        icon='\ue91c'
     fi
 
-    printf "BATTERY%s ${icon}\n" "${charge}%"
+    printf "BATTERY${icon} %s\n" "${charge}%"
     sleep 120
 done > "$BAR_FIFO" &
 
@@ -80,10 +71,10 @@ while true ; do
 done > "$BAR_FIFO" &
 
 while true ; do
-    printf 'TIME%s\n' "$(date +"%_I:%M %p")"
+    printf 'TIME%s\n' "$(date +"%-I:%M %p")"
     sleep 30
 done > "$BAR_FIFO" &
 
-"${dir}/format" < "$BAR_FIFO" | lemonbar -bp -g '2500x30+30+30' -f 'Roboto Mono:size=9' -f 'Font Awesome:size=10' &
+"${dir}/format" < "$BAR_FIFO" | lemonbar -bp -g '2500x30+30+30' -F "$NORMAL" -f 'Roboto Mono:size=9' -f 'Feather:size=11' &
 
 wait
