@@ -1,0 +1,7 @@
+#!/bin/bash
+
+BAR_FIFO="/tmp/bar_fifo"
+
+BACKGROUND="#1d2026"
+HIGHLIGHT="#8b96b0"
+NORMAL="#8b96b0"
