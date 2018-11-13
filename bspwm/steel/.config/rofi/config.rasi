@@ -6,5 +6,5 @@ configuration {
     bw: 0;
     separator-style: "solid";
     color-normal: "argb:00000000, #404653, argb:00000000, argb:00000000, #8b96b0";
-    color-window: "argb:ee1d2026, #8b96b0, #8b96b0";
+    color-window: "argb:fa1d2026, #8b96b0, #8b96b0";
 }
