@@ -33,6 +33,7 @@ xrandr --dpi 192
 # start background services
 xsetroot -cursor_name left_ptr
 feh --bg-fill /usr/share/wallpapers/hex.png
+xbanish -i mod4 &
 compton --config ~/.config/compton/compton.conf &
 ~/.config/bar/bar &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &

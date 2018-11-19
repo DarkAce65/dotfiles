@@ -10,6 +10,7 @@
 - [feh](https://github.com/derf/feh) - For desktop wallpaper
 - [compton](https://github.com/chjj/compton) - For fading
 - [Feather](https://github.com/feathericons/feather) - Icon font
+- [xbanish](https://github.com/jcs/xbanish) - Cursor hiding
 
 ##### Extras
 - vim with [pathogen](https://github.com/tpope/vim-pathogen) and [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
