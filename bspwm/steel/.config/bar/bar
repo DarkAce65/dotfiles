@@ -31,26 +31,29 @@ while true ; do
     sleep 120
 done > "$BAR_FIFO" &
 
-pactl subscribe | while read -r line ; do
-    if [[ $line = *"Event 'change' on sink #0"* ]]; then
+while read -r line ; do
+    default_sink=$(pactl list sinks short | grep RUNNING | head -1 | cut -f1)
+    if [[ $line = *"sink #${default_sink}"* ]]; then
         sinks="$(pactl list sinks)"
-        volume="$(echo "$sinks" | grep -i volume | head -n 1 | awk '{print $5}')"
-        volume_num=${volume::-1}
-        mute="$(echo "$sinks" | grep -i mute | head -n 1 | awk '{print $2}')"
+        volume="$(echo "$sinks" | grep -Pzo '(?s)RUNNING.*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
+        if [ "$volume" ]; then
+            volume_num=${volume::-1}
+            mute="$(echo "$sinks" | grep -Pzo '(?s)RUNNING.*?Mute:\s*\K\N*' | tr -d '\0')"
 
-        if [[ "$mute" == 'yes' ]]; then
-            icon='\ue9fd'
-        elif [[ "${volume_num}" -lt 5 ]]; then
-            icon='\ue9fa'
-        elif [[ "${volume_num}" -lt 50 ]]; then
-            icon='\ue9fb'
-        else
-            icon='\ue9fc'
+            if [[ "$mute" == 'yes' ]]; then
+                icon='\ue9fd'
+            elif [[ "${volume_num}" -lt 5 ]]; then
+                icon='\ue9fa'
+            elif [[ "${volume_num}" -lt 50 ]]; then
+                icon='\ue9fb'
+            else
+                icon='\ue9fc'
+            fi
+
+            printf "VOLUME${icon} %s\n" "$volume"
         fi
-
-        printf "VOLUME${icon} %s\n" "$volume"
     fi
-done > "$BAR_FIFO" &
+done < <(pactl subscribe | grep -i --line-buffered 'sink #') > "$BAR_FIFO" &
 
 while true ; do
     charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
