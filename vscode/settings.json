@@ -1,26 +1,70 @@
 {
+    "search.quickOpen.includeHistory": false,
+    "window.zoomLevel": 1.4,
+    "workbench.colorTheme": "Material Theme Darker High Contrast",
+    "workbench.iconTheme": "eq-material-theme-icons-darker",
+    "workbench.startupEditor": "newUntitledFile",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.fontFamily": "'Fira Code', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.multiCursorModifier": "ctrlCmd",
-    "editor.renderIndentGuides": false,
     "editor.renderWhitespace": "boundary",
+    "editor.suggest.localityBonus": true,
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
-    "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.visible": 0,
-    "extensions.ignoreRecommendations": false,
+    "files.associations": {
+        "*.tpp": "cpp"
+    },
+    "files.enableTrash": false,
     "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
-    "guides.active.color.dark": "rgba(254, 128, 25, 0.65)",
-    "guides.stack.color.dark": "rgba(214, 93, 14, 0.4)",
+    "git.autofetch": true,
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
     "html.autoClosingTags": false,
     "html.format.extraLiners": "",
     "html.format.indentInnerHtml": true,
-    "sublimeTextKeymap.promptV3Features": true,
-    "workbench.colorCustomizations": {
-        "editor.selectionBackground": "#d65d0eaa"
-    },
-    "workbench.colorTheme": "Gruvbox Dark (Hard)",
-    "workbench.startupEditor": "newUntitledFile",
-    "xmlTools.splitXmlnsOnFormat": false,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "latex-workshop.latex.clean.enabled": true,
+    "latex-workshop.latex.tools": [
+        {
+            "args": [
+                "%DOC%",
+                "-file-line-error",
+                "-interaction=nonstopmode",
+                "-pdf",
+                "-shell-escape",
+                "-synctex=1"
+            ],
+            "command": "latexmk",
+            "name": "latexmk"
+        },
+        {
+            "args": [
+                "%DOC%",
+                "-file-line-error",
+                "-interaction=nonstopmode",
+                "-synctex=1"
+            ],
+            "command": "pdflatex",
+            "name": "pdflatex"
+        },
+        {
+            "args": [
+                "%DOCFILE%"
+            ],
+            "command": "bibtex",
+            "name": "bibtex"
+        }
+    ],
+    "latex-workshop.latexindent.args": [
+        "%DIR%/",
+        "%TMPFILE%",
+        "-c",
+        "-y",
+        "defaultIndent: '%INDENT%'"
+    ],
+    "latex-workshop.view.pdf.viewer": "tab"
 }
