@@ -28,43 +28,44 @@
     "html.format.indentInnerHtml": true,
     "java.errors.incompleteClasspath.severity": "ignore",
     "latex-workshop.latex.clean.enabled": true,
+    "latex-workshop.message.update.show": false,
     "latex-workshop.latex.tools": [
         {
-            "args": [
-                "%DOC%",
-                "-file-line-error",
-                "-interaction=nonstopmode",
-                "-pdf",
-                "-shell-escape",
-                "-synctex=1"
-            ],
+            "name": "latexmk",
             "command": "latexmk",
-            "name": "latexmk"
-        },
-        {
             "args": [
-                "%DOC%",
-                "-file-line-error",
+                "-synctex=1",
                 "-interaction=nonstopmode",
-                "-synctex=1"
-            ],
-            "command": "pdflatex",
-            "name": "pdflatex"
+                "-file-line-error",
+                "-shell-escape",
+                "-pdf",
+                "%DOC%"
+            ]
         },
         {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
             "args": [
                 "%DOCFILE%"
-            ],
-            "command": "bibtex",
-            "name": "bibtex"
+            ]
         }
     ],
     "latex-workshop.latexindent.args": [
+        "-c",
         "%DIR%/",
         "%TMPFILE%",
-        "-c",
         "-y",
         "defaultIndent: '%INDENT%'"
     ],
-    "latex-workshop.view.pdf.viewer": "tab"
+    "latex-workshop.view.pdf.viewer": "tab",
 }
