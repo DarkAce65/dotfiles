@@ -1,4 +1,0 @@
-export VISUAL='vim'
-export PROMPT_LEAN_COLOR1='7' PROMPT_LEAN_COLOR2='4'
-zprompt_theme='lean'
-zhighlighters=(main brackets)
