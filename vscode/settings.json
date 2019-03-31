@@ -26,8 +26,29 @@
     "html.autoClosingTags": false,
     "html.format.extraLiners": "",
     "html.format.indentInnerHtml": true,
+    "python.formatting.provider": "black",
+    "prettier.eslintIntegration": true,
+    "extensions.ignoreRecommendations": false,
+    "liveshare.nameTagVisibility": "Never",
+    "liveshare.openSharedServers": false,
+    "liveshare.populateGitCoAuthors": "always",
+    "eslint.packageManager": "yarn",
+    "prettier.printWidth": 100,
+    "prettier.requireConfig": true,
+    "files.exclude": {
+        "**/.git": false
+    },
+    "explorer.confirmDelete": false,
+    "cSpell.language": "en",
+    "cSpell.userWords": [
+        "convolutional",
+        "discriminative",
+        "icosahedron",
+        "taha",
+        "vasowalla"
+    ],
+    "cSpell.allowCompoundWords": true,
     "java.errors.incompleteClasspath.severity": "ignore",
-    "latex-workshop.latex.clean.enabled": true,
     "latex-workshop.message.update.show": false,
     "latex-workshop.latex.tools": [
         {
@@ -39,8 +60,10 @@
                 "-file-line-error",
                 "-shell-escape",
                 "-pdf",
+                "-outdir=%OUTDIR%",
                 "%DOC%"
-            ]
+            ],
+            "env": {}
         },
         {
             "name": "pdflatex",
@@ -50,14 +73,16 @@
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "%DOC%"
-            ]
+            ],
+            "env": {}
         },
         {
             "name": "bibtex",
             "command": "bibtex",
             "args": [
                 "%DOCFILE%"
-            ]
+            ],
+            "env": {}
         }
     ],
     "latex-workshop.latexindent.args": [
@@ -68,4 +93,12 @@
         "defaultIndent: '%INDENT%'"
     ],
     "latex-workshop.view.pdf.viewer": "tab",
+    "workbench.statusBar.feedback.visible": false,
+    "latex-workshop.intellisense.citation.label": "title",
+    "latex-workshop.intellisense.citation.type": "browser",
+    "latex-workshop.progress.runIconType": "Solid Circled",
+
+    "[python]": {
+        "editor.tabSize": 4
+    }
 }
