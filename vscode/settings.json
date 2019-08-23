@@ -1,11 +1,19 @@
 {
     "search.quickOpen.includeHistory": false,
-    "window.zoomLevel": 1.4,
-    "workbench.colorTheme": "Material Theme Darker High Contrast",
-    "workbench.iconTheme": "eq-material-theme-icons-darker",
+    "workbench.colorTheme": "Horizon Italic",
     "workbench.startupEditor": "newUntitledFile",
+    "workbench.statusBar.feedback.visible": false,
+    "workbench.editor.focusRecentEditorAfterClose": false,
+    "workbench.tree.renderIndentGuides": "none",
+    "workbench.colorCustomizations": {
+        "editorIndentGuide.activeBackground": "#888888"
+    },
+    "breadcrumbs.enabled": false,
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.fontFamily": "'Fira Code', 'monospace', monospace, 'Droid Sans Fallback'",
+    "diffEditor.renderSideBySide": true,
+    "editor.cursorSmoothCaretAnimation": true,
+    "editor.fontFamily": "'Iosevka', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontLigatures": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.renderWhitespace": "boundary",
     "editor.suggest.localityBonus": true,
@@ -17,11 +25,15 @@
     "files.associations": {
         "*.tpp": "cpp"
     },
+    "files.exclude": {
+        "**/.git": false
+    },
     "files.enableTrash": false,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
+    "eslint.packageManager": "yarn",
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
     "html.autoClosingTags": false,
     "html.format.extraLiners": "",
@@ -32,13 +44,7 @@
     "liveshare.nameTagVisibility": "Never",
     "liveshare.openSharedServers": false,
     "liveshare.populateGitCoAuthors": "always",
-    "eslint.packageManager": "yarn",
-    "prettier.printWidth": 100,
     "prettier.requireConfig": true,
-    "files.exclude": {
-        "**/.git": false
-    },
-    "explorer.confirmDelete": false,
     "cSpell.language": "en",
     "cSpell.userWords": [
         "convolutional",
@@ -49,7 +55,6 @@
     ],
     "cSpell.allowCompoundWords": true,
     "java.errors.incompleteClasspath.severity": "ignore",
-    "latex-workshop.message.update.show": false,
     "latex-workshop.latex.tools": [
         {
             "name": "latexmk",
@@ -60,10 +65,8 @@
                 "-file-line-error",
                 "-shell-escape",
                 "-pdf",
-                "-outdir=%OUTDIR%",
                 "%DOC%"
-            ],
-            "env": {}
+            ]
         },
         {
             "name": "pdflatex",
@@ -73,16 +76,14 @@
                 "-interaction=nonstopmode",
                 "-file-line-error",
                 "%DOC%"
-            ],
-            "env": {}
+            ]
         },
         {
             "name": "bibtex",
             "command": "bibtex",
             "args": [
                 "%DOCFILE%"
-            ],
-            "env": {}
+            ]
         }
     ],
     "latex-workshop.latexindent.args": [
@@ -93,12 +94,28 @@
         "defaultIndent: '%INDENT%'"
     ],
     "latex-workshop.view.pdf.viewer": "tab",
-    "workbench.statusBar.feedback.visible": false,
+    "latex-workshop.message.update.show": false,
+    "latex-workshop.latex.autoClean.run": "onBuilt",
     "latex-workshop.intellisense.citation.label": "title",
     "latex-workshop.intellisense.citation.type": "browser",
     "latex-workshop.progress.runIconType": "Solid Circled",
 
     "[python]": {
         "editor.tabSize": 4
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
