@@ -28,17 +28,17 @@ while true ; do
         printf "WIFI${icon} %s\n" "$ssid"
     fi
 
-    sleep 120
+    sleep 60
 done > "$BAR_FIFO" &
 
 while read -r line ; do
-    default_sink=$(pactl list sinks short | grep RUNNING | head -1 | cut -f1)
+    default_sink=$(pactl list sinks short | grep -E 'RUNNING|SUSPENDED' | head -1 | cut -f1)
     if [[ $line = *"sink #${default_sink}"* ]]; then
         sinks="$(pactl list sinks)"
-        volume="$(echo "$sinks" | grep -Pzo '(?s)RUNNING.*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
+	volume="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
         if [ "$volume" ]; then
             volume_num=${volume::-1}
-            mute="$(echo "$sinks" | grep -Pzo '(?s)RUNNING.*?Mute:\s*\K\N*' | tr -d '\0')"
+            mute="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Mute:\s*\K\N*' | tr -d '\0')"
 
             if [[ "$mute" == 'yes' ]]; then
                 icon='\ue9fd'
@@ -65,7 +65,7 @@ while true ; do
     fi
 
     printf "BATTERY${icon} %s\n" "${charge}%"
-    sleep 120
+    sleep 60
 done > "$BAR_FIFO" &
 
 while true ; do
