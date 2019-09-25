@@ -1,9 +1,15 @@
+Xft.dpi: 138
+
 ! URxvt configuration
 ! -------------------
-URxvt.font: xft:Roboto Mono:pixelsize=20, xft:DejaVu Sans Mono:pixelsize=20
+URxvt.font: xft:Iosevka Term:pixelsize=20, xft:DejaVu Sans Mono:pixelsize=20, xft:Sarasa Term J:pixelsize=20, xft:Noto Color Emoji:pixelsize=20, xft:Symbola:pixelsize=20
+URxvt.geometry: 100x20
 URxvt.scrollBar: false
 URxvt.urgentOnBell: true
 URxvt.internalBorder: 15
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 ! special
 *.foreground:   #ffffff
