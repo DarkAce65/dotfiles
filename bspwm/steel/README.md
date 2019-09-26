@@ -1,6 +1,7 @@
-# dimmed
+# steel
 
 ### Dependency list
+- [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) - Terminal
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term) - Terminal
 - [zim](https://github.com/eriner/zim) - Shell
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
@@ -22,3 +23,6 @@ Copy the following files and folders to their respective destinations
 - **.config** folder and **.Xresources** > ~/
 - images > /usr/share/wallpapers/
 - install feather font
+
+### Credits
+Inspired by https://github.com/dylanaraps/dotfiles

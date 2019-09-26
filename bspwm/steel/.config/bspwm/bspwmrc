@@ -27,7 +27,7 @@ bspc rule -a XTerm state=floating
 bspc rule -a Gpick state=floating
 
 export _JAVA_AWT_WM_NONREPARENTING=1
-export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.dpiaware=true -Dsun.java2d.uiScale=2'
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.dpiaware=true'
 xrandr --dpi 192
 
 # start background services

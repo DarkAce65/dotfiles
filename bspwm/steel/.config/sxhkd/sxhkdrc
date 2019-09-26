@@ -4,6 +4,9 @@
 
 # launch terminal
 super + t
+    urxvt
+
+super + shift + t
     cool-retro-term
 
 # program launcher
@@ -20,7 +23,7 @@ super + n
 super + s
     code
 
-# chromium
+# web browser
 super + g
     chromium
 
