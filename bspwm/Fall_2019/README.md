@@ -8,6 +8,9 @@
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
     - [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon for bspwm
 - [lemonbar](https://github.com/LemonBoy/bar) - Status bar
+    - [xtitle](https://github.com/baskerville/xtitle) - Show window title
+    - pactl + PulseAudio - Volume indicator
+    - acpi - Battery indicator
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [feh](https://github.com/derf/feh) - Wallpaper setter
 - [compton](https://github.com/chjj/compton) - Compositor
