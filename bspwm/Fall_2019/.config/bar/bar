@@ -14,7 +14,7 @@ xtitle -sf '%u\n' | while read -r wid; do
         class="$(xwinfo -c $wid)"
     fi
 
-    printf 'TITLE%s\n' "$class"
+    printf "TITLE%s\n" "$class"
 done >"$BAR_FIFO" &
 
 while true; do
@@ -57,17 +57,15 @@ done < <(pactl subscribe | grep -i --line-buffered 'sink #') >"$BAR_FIFO" &
 
 while true; do
     charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
+    battery_low=" "
 
     if [[ $(cat /sys/class/power_supply/AC/online) -eq 1 ]]; then
         icon='\uf11d'
-    else
-        icon='\uf11c'
-    fi
-
-    battery_low=" "
-    if [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
+    elif [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
         battery_low="!"
         icon='\uf104'
+    else
+        icon='\uf11c'
     fi
 
     printf "BATTERY${battery_low}${icon} %s\n" "${charge}%"
