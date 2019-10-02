@@ -1,0 +1,89 @@
+#!/bin/bash
+
+dir="${BASH_SOURCE%/*}"
+if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
+source "${dir}/config"
+
+[ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
+mkfifo "$BAR_FIFO"
+
+xtitle -sf '%u\n' | while read -r wid; do
+    if [[ $wid -eq 0 ]]; then
+        class=''
+    else
+        class="$(xwinfo -c $wid)"
+    fi
+
+    printf 'TITLE%s\n' "$class"
+done >"$BAR_FIFO" &
+
+while true; do
+    ssid="$(iw dev wlp2s0 link | grep -i ssid)"
+    ssid=${ssid/*SSID: /}
+    if [[ -z "$ssid" ]]; then
+        icon='\uf20f'
+        printf "WIFI${icon}\n"
+    else
+        icon='\uf20e'
+        printf "WIFI${icon} %s\n" "$ssid"
+    fi
+
+    sleep 60
+done >"$BAR_FIFO" &
+
+while read -r line; do
+    default_sink=$(pactl list sinks short | grep -E 'RUNNING|SUSPENDED' | head -1 | cut -f1)
+    if [[ $line == *"sink #${default_sink}"* ]]; then
+        sinks="$(pactl list sinks)"
+        volume="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
+        if [ "$volume" ]; then
+            volume_num=${volume::-1}
+            mute="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Mute:\s*\K\N*' | tr -d '\0')"
+
+            if [[ "$mute" == 'yes' ]]; then
+                icon='\uf20c'
+            elif [[ "${volume_num}" -lt 5 ]]; then
+                icon='\uf209'
+            elif [[ "${volume_num}" -lt 50 ]]; then
+                icon='\uf20a'
+            else
+                icon='\uf20b'
+            fi
+
+            printf "VOLUME${icon} %s\n" "$volume"
+        fi
+    fi
+done < <(pactl subscribe | grep -i --line-buffered 'sink #') >"$BAR_FIFO" &
+
+while true; do
+    charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
+
+    if [[ $(cat /sys/class/power_supply/AC/online) -eq 1 ]]; then
+        icon='\uf11d'
+    else
+        icon='\uf11c'
+    fi
+
+    battery_low=" "
+    if [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
+        battery_low="!"
+        icon='\uf104'
+    fi
+
+    printf "BATTERY${battery_low}${icon} %s\n" "${charge}%"
+    sleep 60
+done >"$BAR_FIFO" &
+
+while true; do
+    printf 'DATE%s\n' "$(date +"%a %e")"
+    sleep 120
+done >"$BAR_FIFO" &
+
+while true; do
+    printf 'TIME%s\n' "$(date +"%-I:%M %p")"
+    sleep 30
+done >"$BAR_FIFO" &
+
+"${dir}/format" <"$BAR_FIFO" | lemonbar -bp -g '2500x30+30+30' -F "$NORMAL" -f 'Roboto Mono:size=12' -f 'Feather:size=15' &
+
+wait
