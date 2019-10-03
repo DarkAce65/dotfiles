@@ -36,5 +36,6 @@ xsetroot -cursor_name left_ptr
 xbanish -i mod4 &
 compton --config ~/.config/compton/compton.conf &
 redshift &
+dunst &
 ~/.config/bar/bar &
 sxhkd -c ~/.config/sxhkd/sxhkdrc &

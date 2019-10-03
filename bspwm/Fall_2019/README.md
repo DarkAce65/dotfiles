@@ -14,6 +14,7 @@
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [feh](https://github.com/derf/feh) - Wallpaper setter
 - [compton](https://github.com/chjj/compton) - Compositor
+- [dunst](https://github.com/dunst-project/dunst) - Notification daemon
 - [Feather](https://github.com/feathericons/feather) - Icon font
 
 ##### Extras

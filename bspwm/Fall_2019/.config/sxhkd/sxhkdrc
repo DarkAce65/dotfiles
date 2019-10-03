@@ -33,7 +33,7 @@ super + shift + c
 
 # media keys
 XF86MonBrightness{Up,Down}
-    xbacklight -fps 60 -{inc,dec} 10
+    xbacklight -fps 60 -{inc,dec} 10 && dunstify -r 1000 'Brightness: '$(echo "$(xbacklight -get) / 5 * 5" | bc)'%'
 XF86Audio{RaiseVolume,LowerVolume,Mute}
     amixer sset Master {2%+ unmute,2%- unmute,toggle}
 XF86Audio{Prev,Play,Next}
