@@ -27,81 +27,6 @@
         "command": "workbench.action.files.saveAll"
     },
     {
-        "key": "ctrl+l ctrl+c",
-        "command": "-latex-workshop.shortcut.textsc",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+i",
-        "command": "-latex-workshop.shortcut.textit",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+t",
-        "command": "-latex-workshop.shortcut.texttt",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+w",
-        "command": "-latex-workshop.surround",
-        "when": "editorHasSelection && editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+e",
-        "command": "-latex-workshop.shortcut.emph",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+enter",
-        "command": "-latex-workshop.shortcut.item",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+b",
-        "command": "-latex-workshop.shortcut.textbf",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+n",
-        "command": "-latex-workshop.shortcut.textnormal",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+r",
-        "command": "-latex-workshop.shortcut.textrm",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+s",
-        "command": "-latex-workshop.shortcut.textsl",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+-",
-        "command": "-latex-workshop.shortcut.textsubscript",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+6",
-        "command": "-latex-workshop.shortcut.textsuperscript",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l ctrl+u",
-        "command": "-latex-workshop.shortcut.underline",
-        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
-    },
-    {
-        "key": "ctrl+l alt+v",
-        "command": "latex-workshop.view",
-        "when": "editorTextFocus && latex-workshop:altkeymap"
-    },
-    {
-        "key": "ctrl+l alt+v",
-        "command": "-latex-workshop.view",
-        "when": "editorTextFocus && latex-workshop:altkeymap"
-    },
-    {
         "key": "ctrl+1",
         "command": "workbench.action.openEditorAtIndex1"
     },
@@ -172,5 +97,100 @@
     {
         "key": "alt+8",
         "command": "-workbench.action.openEditorAtIndex8"
+    },
+    {
+        "key": "ctrl+l ctrl+m",
+        "command": "editor.action.toggleTabFocusMode",
+        "when": "config.latex-workshop.bind.altKeymap.enabled && textInputFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+m",
+        "command": "-editor.action.toggleTabFocusMode",
+        "when": "textInputFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+l",
+        "command": "expandLineSelection",
+        "when": "config.latex-workshop.bind.altKeymap.enabled && textInputFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+l",
+        "command": "-expandLineSelection",
+        "when": "textInputFocus && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+e",
+        "command": "-latex-workshop.shortcut.emph",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+enter",
+        "command": "-latex-workshop.shortcut.item",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+b",
+        "command": "-latex-workshop.shortcut.textbf",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+i",
+        "command": "-latex-workshop.shortcut.textit",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+i",
+        "command": "-latex-workshop.shortcut.textit",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+n",
+        "command": "-latex-workshop.shortcut.textnormal",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+n",
+        "command": "-latex-workshop.shortcut.textnormal",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+r",
+        "command": "-latex-workshop.shortcut.textrm",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+c",
+        "command": "-latex-workshop.shortcut.textsc",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+s",
+        "command": "-latex-workshop.shortcut.textsl",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+-",
+        "command": "-latex-workshop.shortcut.textsubscript",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+6",
+        "command": "-latex-workshop.shortcut.textsuperscript",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+t",
+        "command": "-latex-workshop.shortcut.texttt",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+u",
+        "command": "-latex-workshop.shortcut.underline",
+        "when": "editorTextFocus && !editorReadonly && editorLangId == 'latex'"
+    },
+    {
+        "key": "ctrl+l ctrl+w",
+        "command": "-latex-workshop.surround",
+        "when": "editorHasSelection && editorTextFocus && !editorReadonly && editorLangId == 'latex'"
     }
 ]

@@ -19,10 +19,22 @@
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "editor.wrappingIndent": "indent",
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "name": "No italics",
+                "scope": ["keyword.operator.pipe", "keyword.operator.arithmetic", "keyword.operator.logical", "keyword.operator.type.ts"],
+                "settings": {
+                    "fontStyle": ""
+                }
+            }
+        ]
+    },
     "explorer.confirmDragAndDrop": false,
-    "explorer.openEditors.visible": 0,
+    "explorer.openEditors.visible": 99,
     "files.associations": {
-        "*.tpp": "cpp"
+        "*.tpp": "cpp",
+        "*.s": "gas"
     },
     "files.exclude": {
         "**/.git": false
@@ -44,7 +56,16 @@
     "gitlens.views.compare.enabled": false,
     "gitlens.mode.statusBar.enabled": false,
     "eslint.packageManager": "yarn",
-    "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Allman, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact",
+        { "language": "typescript", "autoFix": true },
+        "typescriptreact"
+    ],
+    "prettier.trailingComma": "es5",
+    "prettier.printWidth": 100,
+    "prettier.singleQuote": true,
+    "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Attach, PointerAlignment: Left, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
     "html.autoClosingTags": false,
     "html.format.extraLiners": "",
     "html.format.indentInnerHtml": true,
@@ -53,7 +74,6 @@
     "liveshare.nameTagVisibility": "Never",
     "liveshare.openSharedServers": false,
     "liveshare.populateGitCoAuthors": "always",
-    "prettier.requireConfig": true,
     "cSpell.language": "en",
     "cSpell.userWords": [
         "convolutional",
@@ -112,6 +132,12 @@
     "[python]": {
         "editor.tabSize": 4
     },
+    "[c]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
     "[html]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -121,10 +147,10 @@
     "[json]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "[cpp]": {
-        "editor.defaultFormatter": "ms-vscode.cpptools"
-    },
     "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }
