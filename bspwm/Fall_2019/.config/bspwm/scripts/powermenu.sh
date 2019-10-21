@@ -9,7 +9,9 @@ selected=$(echo -e "${power_off}\n${reboot}\n${lock}\n${log_out}" | rofi -theme 
 case $selected in
 $power_off) shutdown -P now ;;
 $reboot) reboot ;;
-$lock)dm-tool lock;;
-$log_out) pkill -P $(pgrep -ox bar)
- bspc quit;;
+$lock) dm-tool lock ;;
+$log_out)
+  pkill -P $(pgrep -ox bar)
+  bspc quit
+  ;;
 esac
