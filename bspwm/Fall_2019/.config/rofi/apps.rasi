@@ -5,13 +5,12 @@ configuration {
   lines: 9;
   scroll-method: 1;
   fixed-num-lines: false;
-  yoffset: -300;
+  yoffset: -275;
 }
 
 @import "colors.rasi"
 
 * {
-
   background-color: @background;
   text-color: @foreground;
 }
