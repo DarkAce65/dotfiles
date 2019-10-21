@@ -14,7 +14,7 @@ super + @space
     rofi -theme apps -modi drun -show drun
 
 # power menu
-super + Escape
+super + ctrl + Escape
     ~/.config/bspwm/scripts/powermenu.sh
 
 # audio
