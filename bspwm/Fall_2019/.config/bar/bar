@@ -39,9 +39,12 @@ while read -r line; do
         if [ "$volume" ]; then
             volume_num=${volume::-1}
             mute="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Mute:\s*\K\N*' | tr -d '\0')"
+            headphones="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Active Port:\s*\K\N*' | tr -d '\0')"
 
             if [[ "$mute" == 'yes' ]]; then
                 icon='\uf20c'
+            elif [[ "$headphones" == *"headphones"* ]]; then
+                icon='\uf17c'
             elif [[ "${volume_num}" -lt 5 ]]; then
                 icon='\uf209'
             elif [[ "${volume_num}" -lt 50 ]]; then
