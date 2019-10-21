@@ -1,13 +1,13 @@
 [global]
     monitor = 0
     follow = mouse
-    geometry = "350x10-50-110"
+    geometry = "400x10-50-110"
     frame_width = 2
     separator_height = 1
     separator_color = auto
     padding = 8
     horizontal_padding = 8
-    idle_threshold = 60
+    idle_threshold = 20
     sort = no
 
     font = Iosevka 10

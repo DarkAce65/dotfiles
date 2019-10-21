@@ -10,8 +10,12 @@ super + shift + t
     cool-retro-term
 
 # program launcher
-super + space
-    rofi -modi drun -show drun
+super + @space
+    rofi -theme apps -modi drun -show drun
+
+# power menu
+super + Escape
+    ~/.config/bspwm/scripts/powermenu.sh
 
 # audio
 super + a
