@@ -16,6 +16,7 @@
 - [compton](https://github.com/chjj/compton) - Compositor
 - [dunst](https://github.com/dunst-project/dunst) - Notification daemon
 - [Feather](https://github.com/feathericons/feather) - Icon font
+- [Noita](https://github.com/addy-dclxvi/gtk-theme-collections) - GTK theme
 
 ##### Extras
 - vim with [pathogen](https://github.com/tpope/vim-pathogen) and [lightline](https://github.com/itchyny/lightline.vim) - Terminal editor
@@ -29,3 +30,5 @@ Copy the following files and folders to their respective destinations
 - **.config** folder and **.Xresources** > ~/
 - images > /usr/share/wallpapers/
 - install feather font
+
+Clone https://github.com/addy-dclxvi/gtk-theme-collections to ~/.themes and select Noita using LXAppearance
