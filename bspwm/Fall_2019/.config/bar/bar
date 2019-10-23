@@ -32,14 +32,18 @@ while true; do
 done >"$BAR_FIFO" &
 
 while read -r line; do
-    default_sink=$(pactl list sinks short | grep -E 'RUNNING|SUSPENDED' | head -1 | cut -f1)
+    default_sink=$(pactl list sinks short | grep -E 'RUNNING' | head -1 | cut -f1)
+    if [[ -z "$default_sink" ]]; then
+        default_sink=$(pactl list sinks short | grep -E 'SUSPENDED' | head -1 | cut -f1)
+    fi
+
     if [[ $line == *"sink #${default_sink}"* ]]; then
-        sinks="$(pactl list sinks)"
-        volume="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
+        sink="$(pactl list sinks | sed -n -e "/^Sink #${default_sink}/,/^Sink/ p")"
+        volume="$(echo "$sink" | grep -Pzo '(?s).*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
         if [ "$volume" ]; then
             volume_num=${volume::-1}
-            mute="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Mute:\s*\K\N*' | tr -d '\0')"
-            headphones="$(echo "$sinks" | grep -Pzo '(?s)(RUNNING|SUSPENDED).*?Active Port:\s*\K\N*' | tr -d '\0')"
+            mute="$(echo "$sink" | grep -Pzo '(?s).*?Mute:\s*\K\N*' | tr -d '\0')"
+            headphones="$(echo "$sink" | grep -Pzo '(?s).*?Active Port:\s*\K\N*' | tr -d '\0')"
 
             if [[ "$mute" == 'yes' ]]; then
                 icon='\uf20c'
