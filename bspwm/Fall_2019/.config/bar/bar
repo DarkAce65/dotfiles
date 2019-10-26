@@ -41,15 +41,18 @@ while read -r line; do
       dunstify -r 1001 -u low "Connected to $ssid"
     fi
   fi
-done < <(tail -f "$NETWORK_FIFO") >"$BAR_FIFO" &
+done < <({
+  echo "$WIFI_INTERFACE $(iw dev $WIFI_INTERFACE link | grep -i ssid >/dev/null && echo "CONNECTED" || echo "DISCONNECTED")" &
+  tail -f "$NETWORK_FIFO"
+}) >"$BAR_FIFO" &
 
 while read -r line; do
   default_sink=$(pactl list sinks short | grep -E 'RUNNING' | head -1 | cut -f1)
-  if [[ -z "$default_sink" ]]; then
+  if [[ -z $default_sink ]]; then
     default_sink=$(pactl list sinks short | grep -E 'SUSPENDED' | head -1 | cut -f1)
   fi
 
-  if [[ $line == *"sink #${default_sink}"* ]]; then
+  if [[ -z $line ]] || [[ $line == *"sink #${default_sink}"* ]]; then
     sink="$(pactl list sinks | sed -n -e "/^Sink #${default_sink}/,/^Sink/ p")"
     volume="$(echo "$sink" | grep -Pzo '(?s).*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
     if [[ $volume ]]; then
@@ -59,7 +62,7 @@ while read -r line; do
 
       if [[ "$mute" == 'yes' ]]; then
         icon='\uf20c'
-      elif [[ "$headphones" == *"headphones"* ]]; then
+      elif [[ "$headphones" == *'headphones'* ]]; then
         icon='\uf17c'
       elif [[ "${volume_num}" -lt 5 ]]; then
         icon='\uf209'
@@ -72,7 +75,10 @@ while read -r line; do
       printf "VOLUME${icon} %s\n" "$volume"
     fi
   fi
-done < <(pactl subscribe | grep -i --line-buffered 'sink #') >"$BAR_FIFO" &
+done < <({
+  echo &
+  pactl subscribe | grep -i --line-buffered 'sink #'
+}) >"$BAR_FIFO" &
 
 while true; do
   charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
