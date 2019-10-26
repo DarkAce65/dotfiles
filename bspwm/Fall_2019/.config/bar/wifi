@@ -6,4 +6,4 @@ source "${dir}/config"
 
 [[ ! -e "$NETWORK_FIFO" ]] && exit 0
 
-echo "$1 $2" > "$NETWORK_FIFO"
+echo "$1 $2" >"$NETWORK_FIFO"
