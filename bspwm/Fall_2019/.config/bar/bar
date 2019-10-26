@@ -4,7 +4,7 @@ dir="${BASH_SOURCE%/*}"
 if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
 source "${dir}/config"
 
-[ -e "$BAR_FIFO" ] && rm "$BAR_FIFO"
+[[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
 mkfifo "$BAR_FIFO"
 
 xtitle -sf '%u\n' | while read -r wid; do
@@ -40,7 +40,7 @@ while read -r line; do
     if [[ $line == *"sink #${default_sink}"* ]]; then
         sink="$(pactl list sinks | sed -n -e "/^Sink #${default_sink}/,/^Sink/ p")"
         volume="$(echo "$sink" | grep -Pzo '(?s).*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
-        if [ "$volume" ]; then
+        if [[ $volume ]]; then
             volume_num=${volume::-1}
             mute="$(echo "$sink" | grep -Pzo '(?s).*?Mute:\s*\K\N*' | tr -d '\0')"
             headphones="$(echo "$sink" | grep -Pzo '(?s).*?Active Port:\s*\K\N*' | tr -d '\0')"
