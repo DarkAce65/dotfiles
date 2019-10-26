@@ -15,7 +15,7 @@ super + @space
 
 # power menu
 super + ctrl + Escape
-    ~/.config/bspwm/scripts/powermenu.sh
+    ~/.config/bspwm/scripts/powermenu
 
 # audio
 super + a
@@ -37,7 +37,7 @@ super + shift + c
 
 # media keys
 XF86MonBrightness{Up,Down}
-    xbacklight -fps 60 -{inc,dec} 10 && dunstify -r 1000 'Brightness: '$(echo "$(xbacklight -get) / 5 * 5" | bc)'%'
+    xbacklight -fps 60 -{inc,dec} 10 && dunstify -r 1000 'Brightness: '$(xbacklight -get)'%'
 XF86Audio{RaiseVolume,LowerVolume,Mute}
     amixer sset Master {2%+ unmute,2%- unmute,toggle}
 XF86Audio{Prev,Play,Next}
