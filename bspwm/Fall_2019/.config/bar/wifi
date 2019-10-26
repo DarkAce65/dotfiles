@@ -1,0 +1,12 @@
+#!/bin/bash
+
+dir="${BASH_SOURCE%/*}"
+if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
+source "${dir}/config"
+
+[[ ! -e "$WIFI_FIFO" ]] && exit 0
+
+ssid="$(iw dev $NETWORK_INTERFACE link | grep -i ssid)"
+ssid=${ssid/*SSID: /}
+
+echo "$ssid" > "$WIFI_FIFO"

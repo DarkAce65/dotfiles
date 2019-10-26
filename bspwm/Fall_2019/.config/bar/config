@@ -1,6 +1,10 @@
 #!/bin/bash
 
-BAR_FIFO="/tmp/bar_fifo"
+BAR_TMP_DIR="/tmp/bar"
+BAR_FIFO="$BAR_TMP_DIR/bar_fifo"
+WIFI_FIFO="$BAR_TMP_DIR/wifi_fifo"
+
+NETWORK_INTERFACE='wlp2s0'
 
 BACKGROUND="#1d2026"
 HIGHLIGHT="#8b96b0"

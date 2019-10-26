@@ -5,7 +5,12 @@ if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
 source "${dir}/config"
 
 [[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
+[[ -e "$WIFI_FIFO" ]] && rm "$WIFI_FIFO"
+[[ -d "$BAR_TMP_DIR" ]] && rmdir "$BAR_TMP_DIR" || exit
+
+mkdir "$BAR_TMP_DIR"
 mkfifo "$BAR_FIFO"
+mkfifo "$WIFI_FIFO"
 
 xtitle -sf '%u\n' | while read -r wid; do
     if [[ $wid -eq 0 ]]; then
