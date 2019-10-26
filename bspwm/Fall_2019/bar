@@ -1,4 +1,4 @@
 #!/bin/bash
 
-ExecUpPost="/home/taha/.config/bar/wifi $ACTION $INTERFACE || true"
-ExecDownPre="/home/taha/.config/bar/wifi $ACTION $INTERFACE || true"
+ExecUpPost="/home/taha/.config/bar/network $INTERFACE $ACTION || true"
+ExecDownPre="/home/taha/.config/bar/network $INTERFACE $ACTION || true"
