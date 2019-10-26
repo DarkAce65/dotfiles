@@ -5,12 +5,12 @@ if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
 source "${dir}/config"
 
 [[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
-[[ -e "$WIFI_FIFO" ]] && rm "$WIFI_FIFO"
-[[ -d "$BAR_TMP_DIR" ]] && rmdir "$BAR_TMP_DIR" || exit
+[[ -e "$NETWORK_FIFO" ]] && rm "$NETWORK_FIFO"
+[[ -d "$BAR_TMP_DIR" ]] && (rmdir "$BAR_TMP_DIR" || exit)
 
 mkdir "$BAR_TMP_DIR"
 mkfifo "$BAR_FIFO"
-mkfifo "$WIFI_FIFO"
+mkfifo "$NETWORK_FIFO"
 
 xtitle -sf '%u\n' | while read -r wid; do
     if [[ $wid -eq 0 ]]; then
@@ -22,19 +22,26 @@ xtitle -sf '%u\n' | while read -r wid; do
     printf "TITLE%s\n" "$class"
 done >"$BAR_FIFO" &
 
-while true; do
-    ssid="$(iw dev wlp2s0 link | grep -i ssid)"
-    ssid=${ssid/*SSID: /}
-    if [[ -z "$ssid" ]]; then
-        icon='\uf20f'
-        printf "WIFI${icon}\n"
-    else
-        icon='\uf20e'
-        printf "WIFI${icon} %s\n" "$ssid"
-    fi
+icon='\uf20f'
+echo -e "WIFI${icon}\n" >"$BAR_FIFO" &
 
-    sleep 60
-done >"$BAR_FIFO" &
+while read -r line; do
+    interface=$(echo $line | awk '{ print $2 }')
+    if [[ $interface == $WIFI_INTERFACE ]]; then
+        action=$(echo $line | awk '{ print $1 }')
+        if [[ $action == 'DISCONNECTED' ]]; then
+            icon='\uf20f'
+            printf "WIFI${icon}\n"
+            dunstify -r 1001 -u low "WiFi disconnected"
+        else
+            ssid="$(iw dev $WIFI_INTERFACE link | grep -i ssid)"
+            ssid=${ssid/*SSID: /}
+            icon='\uf20e'
+            printf "WIFI${icon} %s\n" "$ssid"
+            dunstify -r 1001 -u low "Connected to $ssid"
+        fi
+    fi
+done < <(tail -f "$NETWORK_FIFO") >"$BAR_FIFO" &
 
 while read -r line; do
     default_sink=$(pactl list sinks short | grep -E 'RUNNING' | head -1 | cut -f1)
@@ -69,12 +76,12 @@ done < <(pactl subscribe | grep -i --line-buffered 'sink #') >"$BAR_FIFO" &
 
 while true; do
     charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
-    battery_low=" "
+    battery_low=' '
 
     if [[ $(cat /sys/class/power_supply/AC/online) -eq 1 ]]; then
         icon='\uf11d'
     elif [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
-        battery_low="!"
+        battery_low='!'
         icon='\uf104'
     else
         icon='\uf11c'

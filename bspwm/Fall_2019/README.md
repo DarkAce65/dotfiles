@@ -30,5 +30,6 @@ Copy the following files and folders to their respective destinations
 - **.config** folder and **.Xresources** > ~/
 - images > /usr/share/wallpapers/
 - install feather font
+- **bar** > /etc/netctl/hooks (Make sure you update the path to the wifi script inside the hooks)
 
 Clone https://github.com/addy-dclxvi/gtk-theme-collections to ~/.themes and select Noita using LXAppearance
