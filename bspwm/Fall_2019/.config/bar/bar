@@ -22,9 +22,6 @@ xtitle -sf '%u\n' | while read -r wid; do
   printf "TITLE%s\n" "$class"
 done >"$BAR_FIFO" &
 
-icon='\uf20f'
-echo -e "WIFI${icon}\n" >"$BAR_FIFO" &
-
 while read -r line; do
   interface=$(echo $line | awk '{ print $1 }')
   if [[ $interface == $WIFI_INTERFACE ]]; then
