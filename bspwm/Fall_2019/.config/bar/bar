@@ -17,6 +17,10 @@ xtitle -sf '%u\n' | while read -r wid; do
     class=''
   else
     class="$(xwinfo -c $wid)"
+
+    if [[ $class == 'N/A' ]]; then
+      class="$(xwinfo -n $wid)"
+    fi
   fi
 
   printf "TITLE%s\n" "$class"
