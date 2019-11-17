@@ -25,6 +25,8 @@ bspc monitor -d 1 2 3 4 5
 bspc rule -a URxvt:pulsemixer state=floating
 bspc rule -a XTerm state=floating
 bspc rule -a Gpick state=floating
+bspc rule -a feh state=floating
+bspc rule -a Code desktop='^2'
 
 export _JAVA_AWT_WM_NONREPARENTING=1
 export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.dpiaware=true'
@@ -34,7 +36,7 @@ xrandr --dpi 192
 xsetroot -cursor_name left_ptr
 ~/.fehbg
 xbanish -i mod4 &
-compton --config ~/.config/compton/compton.conf &
+picom --config ~/.config/picom/picom.conf &
 redshift &
 dunst &
 ~/.config/bar/bar &
