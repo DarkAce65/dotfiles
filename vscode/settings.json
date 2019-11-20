@@ -11,7 +11,8 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": true,
     "editor.cursorSmoothCaretAnimation": true,
-    "editor.fontFamily": "'Iosevka', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "Iosevka, monospace, 'Droid Sans Fallback'",
+    "terminal.integrated.fontFamily": "'Iosevka Term', monospace, 'Droid Sans Fallback'",
     "editor.fontLigatures": true,
     "editor.multiCursorModifier": "ctrlCmd",
     "editor.renderWhitespace": "boundary",
@@ -23,14 +24,13 @@
         "textMateRules": [
             {
                 "name": "No italics",
-                "scope": ["keyword.operator.pipe", "keyword.operator.arithmetic", "keyword.operator.logical", "keyword.operator.type.ts"],
+                "scope": ["keyword.operator", "meta.group.regexp"],
                 "settings": {
                     "fontStyle": ""
                 }
             }
         ]
     },
-    "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.visible": 99,
     "files.associations": {
         "*.tpp": "cpp",
@@ -55,6 +55,9 @@
     "gitlens.views.search.enabled": false,
     "gitlens.views.compare.enabled": false,
     "gitlens.mode.statusBar.enabled": false,
+    "gitlens.keymap": "none",
+    "scm.defaultViewMode": "tree",
+    "scm.countBadge": "focused",
     "eslint.packageManager": "yarn",
     "eslint.validate": [
         "javascript",
@@ -62,15 +65,19 @@
         { "language": "typescript", "autoFix": true },
         "typescriptreact"
     ],
-    "prettier.trailingComma": "es5",
-    "prettier.printWidth": 100,
-    "prettier.singleQuote": true,
+    "C_Cpp.updateChannel": "Insiders",
     "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Attach, PointerAlignment: Left, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
+    "clang-format.style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Attach, PointerAlignment: Left, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
     "html.autoClosingTags": false,
     "html.format.extraLiners": "",
     "html.format.indentInnerHtml": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
     "python.formatting.provider": "black",
+    "go.formatTool": "goimports",
+    "rust-client.enableMultiProjectSetup": true,
     "extensions.ignoreRecommendations": false,
+    "liveshare.featureSet": "insiders",
     "liveshare.nameTagVisibility": "Never",
     "liveshare.openSharedServers": false,
     "liveshare.populateGitCoAuthors": "always",
@@ -79,7 +86,10 @@
         "convolutional",
         "discriminative",
         "icosahedron",
+        "rgba",
         "taha",
+        "tokenizes",
+        "uikit",
         "vasowalla"
     ],
     "cSpell.allowCompoundWords": true,
@@ -130,7 +140,8 @@
     "latex-workshop.progress.runIconType": "Solid Circled",
 
     "[python]": {
-        "editor.tabSize": 4
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "ms-python.python"
     },
     "[c]": {
         "editor.defaultFormatter": "ms-vscode.cpptools"
@@ -149,6 +160,9 @@
     },
     "[jsonc]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[rust]": {
+        "editor.tabSize": 4
     },
     "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
