@@ -74,6 +74,7 @@
     "python.linting.pylintEnabled": true,
     "python.linting.enabled": true,
     "python.formatting.provider": "black",
+    "python.terminal.activateEnvironment": false,
     "go.formatTool": "goimports",
     "rust-client.enableMultiProjectSetup": true,
     "extensions.ignoreRecommendations": false,
