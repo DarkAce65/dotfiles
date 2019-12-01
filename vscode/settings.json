@@ -67,8 +67,8 @@
         "typescriptreact"
     ],
     "C_Cpp.updateChannel": "Insiders",
-    "C_Cpp.clang_format_style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Attach, PointerAlignment: Left, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
-    "clang-format.style": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Attach, PointerAlignment: Left, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Attach, PointerAlignment: Left, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
+    "clang-format.fallbackStyle": "{ BasedOnStyle: LLVM, UseTab: false, IndentWidth: 2, BreakBeforeBraces: Attach, PointerAlignment: Left, AllowShortIfStatementsOnASingleLine: false, AllowShortBlocksOnASingleLine: false, AllowShortFunctionsOnASingleLine: Empty, AllowShortLoopsOnASingleLine: false, AlwaysBreakTemplateDeclarations: true, IndentCaseLabels: false, ColumnLimit: 80 }",
     "html.autoClosingTags": false,
     "html.format.extraLiners": "",
     "html.format.indentInnerHtml": true,
