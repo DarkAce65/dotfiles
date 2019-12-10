@@ -108,6 +108,6 @@ while true; do
   sleep 30
 done >"$BAR_FIFO" &
 
-"${dir}/format" <"$BAR_FIFO" | lemonbar -bp -g '2500x30+30+30' -F "$NORMAL" -f 'Roboto Mono:size=12' -f 'Feather:size=15' &
+"${dir}/format" <"$BAR_FIFO" | lemonbar -bp -g "$BAR_GEOMETRY" -F "$NORMAL" -f 'Roboto Mono:size=12' -f 'Feather:size=15' &
 
 wait
