@@ -7,7 +7,7 @@
     separator_color = auto
     padding = 8
     horizontal_padding = 8
-    idle_threshold = 20
+    idle_threshold = 40
     sort = no
 
     font = Iosevka 10
@@ -28,22 +28,22 @@
     close = mod1+space
     close_all = mod1+shift+space
     history = mod1+grave
-    context = mod1+shift+period
+    context = mod1+shift+grave
 
 [urgency_low]
-    background = "#1d2026"
-    foreground = "#8292b2"
-    frame_color = "#8292b2"
+    background = "#8b96b0"
+    foreground = "#1d2026"
+    frame_color = "#8b96b0"
     timeout = 6
 
 [urgency_normal]
-    background = "#596196"
-    foreground = "#ffffff"
-    frame_color = "#596196"
+    background = "#8b96b0"
+    foreground = "#1d2026"
+    frame_color = "#8b96b0"
     timeout = 6
 
 [urgency_critical]
-    background = "#3ea290"
+    background = "#c0480b"
     foreground = "#ffffff"
-    frame_color = "#3ea290"
-    timeout = 0
+    frame_color = "#c0480b"
+    timeout = 30
