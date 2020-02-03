@@ -91,7 +91,7 @@ done < <({
   charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
   battery_low=' '
 
-  if [[ $line == 'PLUGGED' ]]; then
+  if [[ (-z $line && $(cat /sys/class/power_supply/AC/online) -eq 1) || $line == 'PLUGGED' ]]; then
     icon='\uf11d'
   elif [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
     battery_low='!'
@@ -101,7 +101,13 @@ done < <({
   fi
 
   printf "BATTERY${battery_low}${icon} %s\n" "${charge}%"
-done >"$BAR_FIFO" &
+done < <({
+  while true; do
+    echo
+    sleep 120
+  done &
+  "${dir}/power_handler"
+}) >"$BAR_FIFO" &
 
 while true; do
   printf 'DATE%s\n' "$(date +"%a %e")"
