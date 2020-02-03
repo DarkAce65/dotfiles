@@ -10,7 +10,7 @@
 - [lemonbar](https://github.com/LemonBoy/bar) - Status bar
     - [xtitle](https://github.com/baskerville/xtitle) - Show window title
     - pactl + PulseAudio - Volume indicator
-    - acpi - Battery indicator
+    - acpi + [acpid](https://wiki.archlinux.org/index.php/Acpid) - Battery indicator
 - [rofi](https://github.com/DaveDavenport/rofi) - Dmenu
 - [feh](https://github.com/derf/feh) - Wallpaper setter
 - [compton](https://github.com/chjj/compton) - Compositor

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+coproc acpi_listen
+trap 'kill $COPROC_PID' EXIT
+
+if [[ $(cat /sys/class/power_supply/AC/online) -eq 1 ]]; then
+  echo 'PLUGGED'
+else
+  echo 'UNPLUGGED'
+fi
+
+while read -u "${COPROC[0]}" -a event; do
+  if [[ ${event[0]} == 'ac_adapter' ]]; then
+    case "${event[1]}" in
+    AC* | AD*)
+      case "${event[3]}" in
+      00000000) echo 'UNPLUGGED' ;;
+      00000001) echo 'PLUGGED' ;;
+      esac
+      ;;
+    esac
+  fi
+done

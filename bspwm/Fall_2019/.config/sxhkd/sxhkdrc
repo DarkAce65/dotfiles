@@ -49,7 +49,7 @@ XF86Audio{Prev,Play,Next}
 
 # quit bspwm normally
 super + shift + e
-    pkill -P $(pgrep -ox bar); bspc quit
+    pkill bar; bspc quit
 
 # close and kill
 super + {_,shift + }q

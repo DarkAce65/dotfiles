@@ -4,9 +4,15 @@ dir="${BASH_SOURCE%/*}"
 if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
 source "${dir}/config"
 
-[[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
-[[ -e "$NETWORK_FIFO" ]] && rm "$NETWORK_FIFO"
-[[ -d "$BAR_TMP_DIR" ]] && (rmdir "$BAR_TMP_DIR" || exit)
+cleanup() {
+  [[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
+  [[ -e "$NETWORK_FIFO" ]] && rm "$NETWORK_FIFO"
+  [[ -d "$BAR_TMP_DIR" ]] && rmdir "$BAR_TMP_DIR"
+}
+
+trap 'trap - SIGINT SIGTERM && kill -- -$$ && cleanup' SIGINT SIGTERM
+
+cleanup || exit
 
 mkdir "$BAR_TMP_DIR"
 mkfifo "$BAR_FIFO"
@@ -43,7 +49,7 @@ while read -r line; do
     fi
   fi
 done < <({
-  echo "$WIFI_INTERFACE $(iw dev $WIFI_INTERFACE link | grep -i ssid >/dev/null && echo "CONNECTED" || echo "DISCONNECTED")" &
+  echo "$WIFI_INTERFACE $(iw dev $WIFI_INTERFACE link | grep -i ssid >/dev/null && echo "CONNECTED" || echo "DISCONNECTED")"
   tail -f "$NETWORK_FIFO"
 }) >"$BAR_FIFO" &
 
@@ -77,15 +83,15 @@ while read -r line; do
     fi
   fi
 done < <({
-  echo &
+  echo
   pactl subscribe | grep -i --line-buffered 'sink #'
 }) >"$BAR_FIFO" &
 
-while true; do
+"${dir}/power_handler" | while read -r line; do
   charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
   battery_low=' '
 
-  if [[ $(cat /sys/class/power_supply/AC/online) -eq 1 ]]; then
+  if [[ $line == 'PLUGGED' ]]; then
     icon='\uf11d'
   elif [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
     battery_low='!'
@@ -95,7 +101,6 @@ while true; do
   fi
 
   printf "BATTERY${battery_low}${icon} %s\n" "${charge}%"
-  sleep 60
 done >"$BAR_FIFO" &
 
 while true; do
