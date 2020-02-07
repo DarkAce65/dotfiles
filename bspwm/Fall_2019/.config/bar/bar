@@ -8,6 +8,8 @@ cleanup() {
   [[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
   [[ -e "$NETWORK_FIFO" ]] && rm "$NETWORK_FIFO"
   [[ -d "$BAR_TMP_DIR" ]] && rmdir "$BAR_TMP_DIR"
+
+  return 0
 }
 
 trap 'trap - SIGINT SIGTERM && kill -- -$$ && cleanup' SIGINT SIGTERM
