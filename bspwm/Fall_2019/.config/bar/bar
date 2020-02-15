@@ -90,7 +90,7 @@ done < <({
 }) >"$BAR_FIFO" &
 
 "${dir}/power_handler" | while read -r line; do
-  charge="$(acpi --battery | cut -d, -f2 | tr -d '[:space:]%')"
+  charge="$(acpi --battery | head -n 1 | cut -d, -f2 | tr -d '[:space:]%')"
   battery_low=' '
 
   if [[ (-z $line && $(cat /sys/class/power_supply/AC/online) -eq 1) || $line == 'PLUGGED' ]]; then
