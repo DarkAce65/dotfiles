@@ -39,7 +39,7 @@ super + shift + c
 XF86MonBrightness{Up,Down}
     xbacklight -fps 60 -{inc,dec} 10 && dunstify -r 1000 'Brightness: '$(xbacklight -get)'%'
 XF86Audio{RaiseVolume,LowerVolume,Mute}
-    amixer sset Master {2%+ unmute,2%- unmute,toggle}
+    amixer sset Master {5%+ unmute,5%- unmute,toggle}
 XF86Audio{Prev,Play,Next}
     playerctl {previous,play-pause,next}
 
