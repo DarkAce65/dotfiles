@@ -33,3 +33,7 @@ Copy the following files and folders to their respective destinations
 - **bar** > /etc/netctl/hooks (Make sure you update the path to the wifi script inside the hooks)
 
 Clone https://github.com/addy-dclxvi/gtk-theme-collections to ~/.themes and select Noita using LXAppearance
+
+### Credits
+- car.jpg - [Mikhail Sharov](https://www.artstation.com/artwork/Oag3v)
+- tunnel.jpg - [AxiomDesign](https://www.deviantart.com/axiomdesign/art/Foggy-Tunnel-812168625)

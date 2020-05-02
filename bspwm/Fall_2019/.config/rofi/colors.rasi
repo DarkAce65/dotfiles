@@ -1,8 +1,8 @@
 * {
   transparent: #00000000;
-  accent: #899aff;
+  accent: #ca5bb7;
   background-transparent: #01060acc;
-  background: #1d2026;
-  background-focus: #3d3d3d;
-  foreground: #c8cacc;
+  background: #131227;
+  background-focus: #343772;
+  foreground: #b7a7e7;
 }

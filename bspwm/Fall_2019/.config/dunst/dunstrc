@@ -31,19 +31,19 @@
     context = mod1+shift+grave
 
 [urgency_low]
-    background = "#8b96b0"
-    foreground = "#1d2026"
-    frame_color = "#8b96b0"
+    background = "#b7a7e7"
+    foreground = "#131227"
+    frame_color = "#b7a7e7"
     timeout = 6
 
 [urgency_normal]
-    background = "#8b96b0"
-    foreground = "#1d2026"
-    frame_color = "#8b96b0"
+    background = "#b7a7e7"
+    foreground = "#131227"
+    frame_color = "#b7a7e7"
     timeout = 6
 
 [urgency_critical]
-    background = "#c0480b"
+    background = "#fa0f8e"
     foreground = "#ffffff"
-    frame_color = "#c0480b"
+    frame_color = "#fa0f8e"
     timeout = 30
