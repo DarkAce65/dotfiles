@@ -5,6 +5,7 @@ Xft.dpi: 144
 URxvt.font: xft:Iosevka Term:pixelsize=20, xft:DejaVu Sans Mono:pixelsize=20, xft:Sarasa Term J:pixelsize=20, xft:Noto Color Emoji:pixelsize=20, xft:Symbola:pixelsize=20
 URxvt.geometry: 100x20
 URxvt.scrollBar: false
+URxvt.saveLines: 8192
 URxvt.urgentOnBell: true
 URxvt.internalBorder: 15
 URxvt.perl-ext-common: default,matcher
