@@ -7,7 +7,7 @@ bspc config window_gap -2
 for side in top right left; do
   bspc config ${side}_padding 20
 done
-bspc config bottom_padding 70
+bspc config bottom_padding 65
 
 bspc config borderless_monocle true
 bspc config gapless_monocle true
