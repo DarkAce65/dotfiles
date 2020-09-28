@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dir="${BASH_SOURCE%/*}"
+if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
+source "${dir}/config"
+
+[[ ! -e "$NETWORK_FIFO" ]] && exit 0
+
+echo "$1 $2" >"$NETWORK_FIFO"

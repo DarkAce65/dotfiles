@@ -1,0 +1,155 @@
+#!/bin/bash
+
+dir="${BASH_SOURCE%/*}"
+if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
+source "${dir}/config"
+
+cleanup() {
+  [[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
+  [[ -e "$NETWORK_FIFO" ]] && rm "$NETWORK_FIFO"
+  [[ -d "$BAR_TMP_DIR" ]] && rmdir "$BAR_TMP_DIR"
+
+  return 0
+}
+
+trap 'trap - SIGINT SIGTERM && kill -- -$$ && cleanup' SIGINT SIGTERM
+
+cleanup || exit
+
+mkdir "$BAR_TMP_DIR"
+mkfifo "$BAR_FIFO"
+mkfifo "$NETWORK_FIFO"
+
+bspc subscribe report | while read -r line; do
+  workspaces=''
+  IFS=':' read -r -a desktops <<<$line
+  for index in ${!desktops[@]}; do
+    desktopname=${desktops[index]#?}
+    case ${desktops[index]} in
+    U*)
+      workspaces+=" %%{F${URGENT}}%%{+uU${URGENT}}\uf102%%{-uU-}%%{F-} "
+      ;;
+    u*)
+      workspaces+=" %%{F${URGENT}}\uf102%%{F-} "
+      ;;
+    O*)
+      workspaces+=" %%{+u}${desktopname}%%{-u} "
+      ;;
+    o*)
+      workspaces+=" $desktopname "
+      ;;
+    F*)
+      workspaces+=" %%{+u}${desktopname}%%{-u} "
+      ;;
+    f*)
+      workspaces+=" $desktopname "
+      ;;
+    esac
+  done
+  printf "WORKSPACES${workspaces}\n"
+done >"$BAR_FIFO" &
+
+xtitle -sf '%u\n' | while read -r wid; do
+  if [[ $wid -eq 0 ]]; then
+    class=''
+  else
+    class="$(xwinfo -c $wid)"
+
+    if [[ $class == 'N/A' ]]; then
+      class="$(xwinfo -n $wid)"
+    fi
+  fi
+
+  printf "TITLE%s\n" "$class"
+done >"$BAR_FIFO" &
+
+while read -r line; do
+  interface=$(echo $line | awk '{ print $1 }')
+  if [[ $interface == $WIFI_INTERFACE ]]; then
+    action=$(echo $line | awk '{ print $2 }')
+    if [[ $action == 'DISCONNECTED' ]]; then
+      icon='\uf213'
+      printf "WIFI${icon}\n"
+      dunstify -r 1001 -u low "WiFi disconnected"
+    else
+      ssid="$(iw dev $WIFI_INTERFACE link | grep -i ssid)"
+      ssid=${ssid/*SSID: /}
+      icon='\uf212'
+      printf "WIFI${icon} %s\n" "$ssid"
+      dunstify -r 1001 -u low "Connected to $ssid"
+    fi
+  fi
+done < <({
+  echo "$WIFI_INTERFACE $(iw dev $WIFI_INTERFACE link | grep -i ssid >/dev/null && echo "CONNECTED" || echo "DISCONNECTED")"
+  tail -f "$NETWORK_FIFO"
+}) >"$BAR_FIFO" &
+
+while read -r line; do
+  default_sink=$(pactl list sinks short | grep -E 'RUNNING' | head -1 | cut -f1)
+  if [[ -z $default_sink ]]; then
+    default_sink=$(pactl list sinks short | grep -E 'SUSPENDED' | head -1 | cut -f1)
+  fi
+
+  if [[ -z $line ]] || [[ $line == *"sink #${default_sink}"* ]]; then
+    sink="$(pactl list sinks | sed -n -e "/^Sink #${default_sink}/,/^Sink/ p")"
+    volume="$(echo "$sink" | grep -Pzo '(?s).*?Volume:\s*\K\N*' | tr -d '\0' | awk '{print $4}')"
+    if [[ $volume ]]; then
+      volume_num=${volume::-1}
+      mute="$(echo "$sink" | grep -Pzo '(?s).*?Mute:\s*\K\N*' | tr -d '\0')"
+      headphones="$(echo "$sink" | grep -Pzo '(?s).*?Active Port:\s*\K\N*' | tr -d '\0')"
+
+      if [[ "$mute" == 'yes' ]]; then
+        icon='\uf210'
+      elif [[ "$headphones" == *'headphones'* ]]; then
+        icon='\uf180'
+      elif [[ "${volume_num}" -lt 5 ]]; then
+        icon='\uf20d'
+      elif [[ "${volume_num}" -lt 50 ]]; then
+        icon='\uf20e'
+      else
+        icon='\uf20f'
+      fi
+
+      printf "VOLUME${icon} %s\n" "$volume"
+    fi
+  fi
+done < <({
+  echo
+  pactl subscribe | grep -i --line-buffered 'sink #'
+}) >"$BAR_FIFO" &
+
+"${dir}/power_handler" | while read -r line; do
+  charge="$(acpi --battery | head -n 1 | cut -d, -f2 | tr -d '[:space:]%')"
+  battery_low=' '
+
+  if [[ (-z $line && $(cat /sys/class/power_supply/AC/online) -eq 1) || $line == 'PLUGGED' ]]; then
+    icon='\uf11d'
+  elif [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
+    battery_low='!'
+    icon='\uf104'
+  else
+    icon='\uf11c'
+  fi
+
+  printf "BATTERY${battery_low}${icon} %s\n" "${charge}%"
+done < <({
+  while true; do
+    echo
+    sleep 120
+  done &
+  "${dir}/power_handler"
+}) >"$BAR_FIFO" &
+
+while true; do
+  printf 'DATE%s\n' "$(date +"%a %e")"
+  sleep 120
+done >"$BAR_FIFO" &
+
+while true; do
+  printf 'TIME%s\n' "$(date +"%-I:%M %p")"
+  sleep 30
+done >"$BAR_FIFO" &
+
+"${dir}/format" <"$BAR_FIFO" | lemonbar -bp -g "$BAR_GEOMETRY" -u 2 -F "$NORMAL" -U "$NORMAL" -o 0 -f 'Titillium:size=15' -o -3 -f 'Feather:size=15' &
+
+wait

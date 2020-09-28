@@ -1,0 +1,46 @@
+configuration {
+  font: "Iosevka 24";
+  display-drun: "apps";
+  show-icons: true;
+  lines: 9;
+  scroll-method: 1;
+  fixed-num-lines: false;
+  yoffset: -275;
+}
+
+@import "colors.rasi"
+
+* {
+  background-color: @background;
+  text-color: @foreground;
+}
+
+window {
+  width: 40%;
+  border: 2px;
+  border-color: @background-focus;
+}
+
+inputbar {
+  children: [ prompt, textbox-prompt-colon, entry ];
+  padding: 6px 12px;
+}
+
+textbox-prompt-colon {
+  str: "::";
+  expand: false;
+}
+
+entry {
+  text-color: @accent;
+}
+
+element {
+  font: "Iosevka 18";
+  padding: 12px;
+}
+
+element selected {
+  text-color: @background;
+  background-color: @accent;
+}

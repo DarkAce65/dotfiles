@@ -1,0 +1,38 @@
+configuration {
+  font: "Feather 24";
+  lines: 4;
+  fullscreen: true;
+  cycle: false;
+}
+
+@import "colors.rasi"
+
+* {
+  background-color: @transparent;
+  text-color: @foreground;
+}
+
+window {
+  children: [ listview ];
+  padding: 580px 728px; // (height - (200 + 60)) / 2, (width - (200 + 76) * 4) / 2
+  text-align: center;
+  background-color: @background-transparent;
+}
+
+listview {
+  layout: horizontal;
+}
+
+element {
+  padding: 60px;
+  margin: 60px;
+  background-color: @background;
+  border: 1px;
+  border-color: @background-focus;
+}
+
+element selected {
+  text-color: @background;
+  background-color: @accent;
+  border-color: @accent;
+}

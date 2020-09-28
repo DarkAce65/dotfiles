@@ -1,0 +1,17 @@
+#!/bin/bash
+
+power_off=$(printf '\uf1c4')
+reboot=$(printf '\uf1cc')
+lock=$(printf '\uf193')
+log_out=$(printf '\uf195')
+
+selected=$(echo -e "${power_off}\n${reboot}\n${lock}\n${log_out}" | rofi -theme power -dmenu -selected-row 2)
+case $selected in
+$power_off) shutdown -P now ;;
+$reboot) reboot ;;
+$lock) dm-tool lock ;;
+$log_out)
+  pkill -P $(pgrep -ox bar)
+  bspc quit
+  ;;
+esac

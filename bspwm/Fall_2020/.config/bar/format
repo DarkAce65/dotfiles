@@ -1,0 +1,39 @@
+#!/bin/bash
+
+dir="${BASH_SOURCE%/*}"
+if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
+source "${dir}/config"
+
+while read -r line; do
+  case $line in
+  WORKSPACES*)
+    workspaces="${line#WORKSPACES}"
+    ;;
+  TITLE*)
+    if [[ $line == "TITLE" ]]; then
+      title=''
+    else
+      title="${line#TITLE}"
+    fi
+    ;;
+  WIFI*)
+    wifi="${line#WIFI}"
+    ;;
+  VOLUME*)
+    volume="${line#VOLUME}"
+    ;;
+  BATTERY*)
+    battery="${line#BATTERY?}"
+    if [[ "$line" == BATTERY!* ]]; then
+      battery="%{F${LOW_BATTERY}}${battery}%{F-}"
+    fi
+    ;;
+  DATE*)
+    date="${line#DATE}"
+    ;;
+  TIME*)
+    time="${line#TIME}"
+    ;;
+  esac
+  printf '%s%%{c}%s%%{r}%s\n' "${workspaces}" "${title}" "${wifi}  ${volume}  ${battery}%{O60}${date} ${time}"
+done

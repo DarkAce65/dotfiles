@@ -1,0 +1,39 @@
+#!/bin/sh
+
+# bspc config
+bspc config border_width 2
+bspc config window_gap -2
+
+for side in top right left; do
+  bspc config ${side}_padding 20
+done
+bspc config bottom_padding 70
+
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config click_to_focus true
+bspc config initial_polarity second_child
+
+bspc config normal_border_color '#000000'
+bspc config focused_border_color '#666666'
+bspc config presel_feedback_color '#666666'
+
+# workspaces
+bspc monitor -d '\uf1ed' '\uf140' '\uf136' '\uf1e4' '\uf1ac'
+
+# rules
+bspc config external_rules_command ~/.config/bspwm/external_rules
+
+export _JAVA_AWT_WM_NONREPARENTING=1
+export _JAVA_OPTIONS='-Dawt.useSystemAAFontSettings=gasp -Dswing.defaultlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel -Dsun.java2d.dpiaware=true'
+xrandr --dpi 192
+
+# start background services
+xsetroot -cursor_name left_ptr
+~/.fehbg
+xbanish -i mod4 &
+picom --config ~/.config/picom/picom.conf &
+redshift &
+dunst &
+~/.config/bar/bar &
+sxhkd -c ~/.config/sxhkd/sxhkdrc &

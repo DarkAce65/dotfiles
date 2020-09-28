@@ -1,0 +1,18 @@
+#!/bin/sh
+
+wid=${1?}
+class=$2
+instance=$3
+consequences=$4
+
+match="$class:$instance"
+if [[ $match == ':' ]]; then
+  wm_name=$(xprop -id $wid WM_NAME | cut -d'"' -f2)
+  match=$wm_name
+fi
+
+case "$match" in
+URxvt:pulsemixer | XTerm:* | Gpick:* | Matplotlib:* | feh:*) echo "state=floating" ;;
+Code:*) echo "desktop=^2 follow=on" ;;
+Spotify) echo "desktop=^5 follow=on" ;;
+esac

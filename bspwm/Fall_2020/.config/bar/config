@@ -1,0 +1,16 @@
+#!/bin/bash
+
+BAR_TMP_DIR='/tmp/bar'
+BAR_FIFO="$BAR_TMP_DIR/bar_fifo"
+NETWORK_FIFO="$BAR_TMP_DIR/network_fifo"
+
+WIFI_INTERFACE='wlp2s0'
+
+BAR_GEOMETRY='2550x40+5+5'
+
+BACKGROUND='#000000'
+NORMAL='#ffffff'
+URGENT='#fea63c'
+LOW_BATTERY='#e84f4f'
+
+LOW_BATTERY_LEVEL=15
