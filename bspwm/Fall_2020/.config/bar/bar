@@ -36,7 +36,7 @@ bspc subscribe report | while read -r line; do
       workspaces+=" %%{+u}${desktopname}%%{-u} "
       ;;
     o*)
-      workspaces+=" $desktopname "
+      workspaces+=" %%{+uU#666666}${desktopname}%%{-uU-} "
       ;;
     F*)
       workspaces+=" %%{+u}${desktopname}%%{-u} "

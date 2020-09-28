@@ -15,7 +15,6 @@ configuration {
 window {
   children: [ listview ];
   padding: 580px 728px; // (height - (200 + 60)) / 2, (width - (200 + 76) * 4) / 2
-  text-align: center;
   background-color: @background-transparent;
 }
 
