@@ -41,7 +41,7 @@ super + shift + c
 
 # media keys
 XF86MonBrightness{Up,Down}
-    xbacklight -fps 60 -{inc,dec} 10 && dunstify -r 1000 'Brightness: '$(xbacklight -get)'%'
+    ~/.config/bspwm/scripts/brightness {inc,dec} 10
 XF86Audio{RaiseVolume,LowerVolume,Mute}
     amixer sset Master {5%+ unmute,5%- unmute,toggle}
 XF86Audio{Prev,Play,Next}
