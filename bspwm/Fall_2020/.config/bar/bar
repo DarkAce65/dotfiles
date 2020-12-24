@@ -4,9 +4,17 @@ dir="${BASH_SOURCE%/*}"
 if [[ ! -d "$dir" ]]; then dir="$PWD"; fi
 source "${dir}/config"
 
+close_battery_notification() {
+  if [[ -e "$LOW_BATTERY_FLAG" ]]; then
+    dunstify -C $(cat "$LOW_BATTERY_FLAG")
+    rm "$LOW_BATTERY_FLAG"
+  fi
+}
+
 cleanup() {
   [[ -e "$BAR_FIFO" ]] && rm "$BAR_FIFO"
   [[ -e "$NETWORK_FIFO" ]] && rm "$NETWORK_FIFO"
+  close_battery_notification
   [[ -d "$BAR_TMP_DIR" ]] && rmdir "$BAR_TMP_DIR"
 
   return 0
@@ -118,24 +126,32 @@ done < <({
   pactl subscribe | grep -i --line-buffered 'sink #'
 }) >"$BAR_FIFO" &
 
-"${dir}/power_handler" | while read -r line; do
+while read -r line; do
   charge="$(acpi --battery | head -n 1 | cut -d, -f2 | tr -d '[:space:]%')"
   battery_low=' '
 
   if [[ (-z $line && $(cat /sys/class/power_supply/AC/online) -eq 1) || $line == 'PLUGGED' ]]; then
     icon='\uf11d'
-  elif [[ $charge -lt $LOW_BATTERY_LEVEL ]]; then
+  elif [[ $charge -le $LOW_BATTERY_LEVEL ]]; then
     battery_low='!'
     icon='\uf104'
   else
     icon='\uf11c'
   fi
 
+  if [[ $battery_low == '!' ]]; then
+    if [[ ! -e "$LOW_BATTERY_FLAG" ]]; then
+      dunstify -p -h string:x-dunst-stack-tag:battery -u critical "Battery low" >"$LOW_BATTERY_FLAG"
+    fi
+  else
+    close_battery_notification
+  fi
+
   printf "BATTERY${battery_low}${icon} %s\n" "${charge}%"
 done < <({
   while true; do
-    echo
     sleep 120
+    echo
   done &
   "${dir}/power_handler"
 }) >"$BAR_FIFO" &

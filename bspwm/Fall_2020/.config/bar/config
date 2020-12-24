@@ -3,6 +3,7 @@
 BAR_TMP_DIR='/tmp/bar'
 BAR_FIFO="$BAR_TMP_DIR/bar_fifo"
 NETWORK_FIFO="$BAR_TMP_DIR/network_fifo"
+LOW_BATTERY_FLAG="$BAR_TMP_DIR/alerted_low_battery"
 
 WIFI_INTERFACE='wlp2s0'
 
