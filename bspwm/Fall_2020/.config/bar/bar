@@ -70,13 +70,13 @@ while read -r line; do
     if [[ $action == 'DISCONNECTED' ]]; then
       icon='\uf213'
       printf "WIFI${icon}\n"
-      dunstify -r 1001 -u low "WiFi disconnected"
+      dunstify -h string:x-dunst-stack-tag:wifi -u low "WiFi disconnected"
     else
       ssid="$(iw dev $WIFI_INTERFACE link | grep -i ssid)"
       ssid=${ssid/*SSID: /}
       icon='\uf212'
       printf "WIFI${icon} %s\n" "$ssid"
-      dunstify -r 1001 -u low "Connected to $ssid"
+      dunstify -h string:x-dunst-stack-tag:wifi -u low "Connected to $ssid"
     fi
   fi
 done < <({

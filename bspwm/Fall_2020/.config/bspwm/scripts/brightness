@@ -24,4 +24,4 @@ elif [[ $brightness -gt 100 ]]; then
 fi
 
 echo "$$ ${brightness}" >$brightness_temp_file
-dunstify -r 1000 "Brightness: ${brightness}%" && xbacklight -fps 60 -set $brightness && rm $brightness_temp_file
+dunstify -h string:x-dunst-stack-tag:brightness "Brightness: ${brightness}%" && xbacklight -fps 60 -set $brightness && rm $brightness_temp_file
