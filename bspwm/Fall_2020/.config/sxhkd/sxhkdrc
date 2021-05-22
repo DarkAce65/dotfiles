@@ -4,7 +4,7 @@
 
 # launch terminal
 super + t
-    urxvt
+    kitty
 
 super + shift + t
     cool-retro-term

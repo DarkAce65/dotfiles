@@ -4,7 +4,7 @@
 
 ### Dependency list
 - [lightdm](https://wiki.ubuntu.com/LightDM) with [lightdm-mini-greeter](https://github.com/prikhi/lightdm-mini-greeter) - Login manager
-- [urxvt](https://wiki.archlinux.org/index.php/rxvt-unicode) - Terminal
+- [kitty](https://sw.kovidgoyal.net/kitty/) - Terminal
 - [cool-retro-term](https://github.com/Swordfish90/cool-retro-term) - Terminal
 - [zim](https://github.com/eriner/zim) - Shell
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
