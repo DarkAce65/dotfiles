@@ -7,12 +7,11 @@ consequences=$4
 
 match="$class:$instance"
 if [[ $match == ':' ]]; then
-  wm_name=$(xprop -id $wid WM_NAME | cut -d'"' -f2)
-  match=$wm_name
+  match=$(ps -p $(xdo pid $wid) -o comm=)
 fi
 
 case "$match" in
 URxvt:pulsemixer | XTerm:* | Gpick:* | Matplotlib:* | feh:*) echo "state=floating" ;;
 Code:*) echo "desktop=^2 follow=on" ;;
-Spotify) echo "desktop=^5 follow=on" ;;
+spotify) echo "desktop=^5 follow=on" ;;
 esac

@@ -9,6 +9,7 @@
 - [zim](https://github.com/eriner/zim) - Shell
 - [bspwm](https://github.com/baskerville/bspwm) - Window manager
     - [sxhkd](https://github.com/baskerville/sxhkd) - Hotkey daemon for bspwm
+    - [xdo](https://github.com/baskerville/xdo) - X window util
 - [lemonbar](https://github.com/LemonBoy/bar) - Status bar
     - [xtitle](https://github.com/baskerville/xtitle) - Window title util
     - pactl + PulseAudio - Volume indicator
