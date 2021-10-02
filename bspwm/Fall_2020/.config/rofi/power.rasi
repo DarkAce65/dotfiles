@@ -1,6 +1,5 @@
 configuration {
   font: "Feather 24";
-  lines: 4;
   fullscreen: true;
   cycle: false;
 }
@@ -14,12 +13,15 @@ configuration {
 
 window {
   children: [ listview ];
+  height: 100%;
+  width: 100%;
   padding: 580px 728px; // (height - (200 + 60)) / 2, (width - (200 + 76) * 4) / 2
   background-color: @background-transparent;
 }
 
 listview {
   layout: horizontal;
+  lines: 4;
 }
 
 element {
@@ -31,7 +33,10 @@ element {
 }
 
 element selected {
-  text-color: @background;
   background-color: @accent;
   border-color: @accent;
+}
+
+element-text selected {
+  text-color: @background;
 }

@@ -2,7 +2,6 @@ configuration {
   font: "Iosevka 24";
   display-drun: "apps";
   show-icons: true;
-  lines: 9;
   scroll-method: 1;
   fixed-num-lines: false;
   yoffset: -275;
@@ -26,13 +25,13 @@ inputbar {
   padding: 6px 12px;
 }
 
+listview {
+  lines: 9;
+}
+
 textbox-prompt-colon {
   str: "::";
   expand: false;
-}
-
-entry {
-  text-color: @accent;
 }
 
 element {
@@ -40,7 +39,13 @@ element {
   padding: 12px;
 }
 
-element selected {
+element-icon {
+  size: 30px;
+  padding: 0 10px 0 0;
+  vertical-align: 0.5;
+}
+
+element selected, element-icon selected, element-text selected {
   text-color: @background;
   background-color: @accent;
 }
