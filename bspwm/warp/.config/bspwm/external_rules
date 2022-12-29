@@ -1,0 +1,18 @@
+#!/bin/sh
+
+wid=${1?}
+class=$2
+instance=$3
+consequences=$4
+
+match="$class:$instance"
+if [[ $match == ':' ]]; then
+  match=$(ps -p $(xdo pid $wid) -o comm=)
+fi
+
+case "$match" in
+kitty:pulsemixer | XTerm:* | Gpick:* | Matplotlib:* | feh:*) echo "state=floating" ;;
+Code:*) echo "desktop=^2 follow=on" ;;
+firefox:Toolkit) echo "sticky=on" ;;
+spotify) echo "desktop=^5 follow=on" ;;
+esac

@@ -1,0 +1,49 @@
+(defvar battery_id "BAT0")
+(defvar low_battery_threshold 15)
+
+(deflisten workspaces "./workspaces.sh")
+(deflisten volume :initial "{ \"volume\": \"0\", \"isMuted\": false, \"headphones\": false }"
+"./volume.sh")
+(defpoll date :interval "120s" "date +\"%a %e\"")
+(defvar hour 4)
+(defpoll time :interval "30s" "date +\"%I\\n%M\"")
+
+(defwindow bar
+  :monitor 0
+  :geometry (geometry :x 10 :width 50 :height 1420 :anchor "left center")
+  :stacking "bg"
+  :windowtype "dock"
+  :wm-ignore false
+  (bar))
+
+(defwidget bar []
+  (centerbox :class "bar" :orientation "v"
+    (label :class "arch-icon" :valign "start" :text "\\uf303")
+    (literal :content workspaces)
+    (status)))
+
+(defwidget status []
+  (box :orientation "v" :valign "end" :space-evenly false
+    (volume_bar)
+    (battery_bar)
+    (label :class "m-bottom-4" :angle 90 :text date)
+    (label :class "text-accent font-monospace" :text time)))
+
+(defwidget volume_bar []
+  (box :class "meter ${volume.isMuted ? "volume-muted" : ""} m-bottom-4" :tooltip "${volume.volume * 100}%"
+    (overlay
+      (progress :halign "center" :orientation "v" :height 100 :flipped true :value {volume.volume * 100})
+      (label
+        :class "font-icon"
+        :text {volume.isMuted ? "\\ufa80" : volume.headphones ? "\\uf180" : "\\ufa7d"}
+        :style "font-size: 45px;"
+      ))))
+
+(defwidget battery_bar []
+  (box :class "meter ${EWW_BATTERY[battery_id].capacity <= low_battery_threshold ? "low-battery" : ""} m-bottom-4" :tooltip "${EWW_BATTERY[battery_id].capacity}%"
+    (overlay
+      (progress :halign "center" :orientation "v" :height 100 :flipped true :value {EWW_BATTERY[battery_id].capacity})
+      (label
+        :class "font-icon"
+        :text {EWW_BATTERY[battery_id].status == "Charging" ? "\\uf583" : EWW_BATTERY[battery_id].capacity <= low_battery_threshold ? "\\uf582" : "\\uf578"}
+      ))))

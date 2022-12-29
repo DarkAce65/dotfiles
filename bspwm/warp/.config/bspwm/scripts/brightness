@@ -1,0 +1,27 @@
+#!/bin/sh
+
+brightness_temp_file='/tmp/brightness'
+
+if [ -f $brightness_temp_file ]; then
+  temp=$(cat $brightness_temp_file)
+  active_pid=${temp% *}
+  kill $active_pid
+  brightness=${temp#* }
+else
+  brightness=$(xbacklight -get)
+fi
+
+case $1 in
+up) brightness=$(($brightness + ${2:-10})) ;;
+down) brightness=$(($brightness - ${2:-10})) ;;
+*) exit 1 ;;
+esac
+
+if [[ $brightness -lt 0 ]]; then
+  brightness=0
+elif [[ $brightness -gt 100 ]]; then
+  brightness=100
+fi
+
+echo "$$ ${brightness}" >$brightness_temp_file
+dunstify -h string:x-dunst-stack-tag:brightness "Brightness: ${brightness}%" && xbacklight -fps 60 -set $brightness && rm $brightness_temp_file

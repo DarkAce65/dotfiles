@@ -1,0 +1,100 @@
+$foreground: #ffffff;
+$background: #161616;
+
+$color0: #222222;
+$color8: #666666;
+$color1: #e84f4f;
+$color9: #d23d3d;
+$color2: #b7ce42;
+$color10: #bde077;
+$color3: #fea63c;
+$color11: #ffe863;
+$color4: #66aabb;
+$color12: #aaccbb;
+$color5: #b7416e;
+$color13: #e16a98;
+$color6: #6d878d;
+$color14: #42717b;
+$color7: #dddddd;
+$color15: #cccccc;
+
+$dark: $background;
+$gray: $color8;
+$light: $foreground;
+$accent: $color4;
+$urgent: $color1;
+
+$bar-width: 50px;
+$border-radius: 6px;
+
+* {
+  all: unset;
+  font-family: Titillium, "Open Sans", sans-serif;
+  font-size: 32px;
+}
+
+@for $i from 1 through 6 {
+  .m-bottom-#{$i} {
+    margin-bottom: 4px * $i;
+  }
+}
+
+.font-monospace {
+  font-family: Iosevka, monospace;
+}
+
+.font-icon {
+  font-family: Iosevka;
+}
+
+.text-accent {
+  color: $accent;
+}
+
+.arch-icon {
+  font-size: 2em;
+  color: $accent;
+}
+
+.workspaces {
+  * {
+    min-height: $bar-width;
+    min-width: $bar-width;
+    color: $gray;
+    margin: 8px 0;
+  }
+
+  .focused {
+    color: $accent;
+    background: rgba($accent, 0.1);
+    border-radius: $border-radius;
+  }
+
+  .urgent {
+    color: $color3;
+  }
+}
+
+.meter {
+  color: $dark;
+
+  & trough {
+    min-width: 36px;
+    border-radius: $border-radius;
+    background: $gray;
+
+    & > progress {
+      min-width: 36px;
+      border-radius: $border-radius;
+      background: $accent;
+    }
+  }
+}
+
+.volume-muted trough > progress {
+  background: $color15;
+}
+
+.low-battery trough > progress {
+  background: $urgent;
+}
