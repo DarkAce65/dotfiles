@@ -4,8 +4,7 @@
 (deflisten workspaces "./workspaces.sh")
 (deflisten volume :initial "{ \"volume\": \"0\", \"isMuted\": false, \"headphones\": false }"
 "./volume.sh")
-(defpoll date :interval "120s" "date +\"%a %e\"")
-(defvar hour 4)
+(defpoll date :interval "120s" "date +\"%a   %b %-d\"")
 (defpoll time :interval "30s" "date +\"%I\\n%M\"")
 
 (defwindow bar
